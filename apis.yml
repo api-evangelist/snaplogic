@@ -29,6 +29,83 @@ common:
   - url: https://www.linkedin.com/company/snaplogic/
     name: LinkedIn
     type: LinkedIn
+  - name: iPaaS Solution for the Enterprise | SnapLogic
+    description: 'null'
+    url: https://www.snaplogic.com/
+    type: Website
+  - name: SnapLogic Snaps | Pre-built Intelligent Connectors
+    description: 'null'
+    url: https://www.snaplogic.com/products/snaps
+    type: Integrations
+  - name: Data and Application Integration Use Cases | SnapLogic
+    description: 'null'
+    url: https://www.snaplogic.com/use-cases
+    type: UseCases
+  - name: Request a Customized Demo of SnapLogic
+    description: 'null'
+    url: https://www.snaplogic.com/request-demo
+    type: RequestDemo
+  - name: Partner Ecosystem | SnapLogic
+    description: 'null'
+    url: https://www.snaplogic.com/partners
+    type: Partners
+  - name: SnapLogic Customer Success Stories and Case Studies
+    description: 'null'
+    url: https://www.snaplogic.com/customers
+    type: Customers
+  - name: The Generative Integration Blog by SnapLogic
+    description: 'null'
+    url: https://www.snaplogic.com/blog
+    type: Blog
+  - name: SnapLogic Resource Library
+    description: 'null'
+    url: https://www.snaplogic.com/resources?_resource_type=ebook
+    type: eBooks
+  - name: Evolving the Enterprise Podcast | Hosted by SnapLogic
+    description: 'null'
+    url: https://www.snaplogic.com/resources/podcasts
+    type: Podcast
+  - name: SnapLogic Upcoming Events & Webinars
+    description: 'null'
+    url: https://www.snaplogic.com/resources/events
+    type: Webinars
+  - name: SnapLogic 101 Training Workshops | SnapLogic
+    description: 'null'
+    url: https://www.snaplogic.com/resources/events/customer-workshops
+    type: Training
+  - name: SnapLogic User Login
+    description: 'null'
+    url: >-
+      https://cdn.elastic.snaplogic.com/sl/login.html?referrer=https://www.snaplogic.com/
+    type: Login
+  - name: Request a Customized Demo of SnapLogic
+    description: 'null'
+    url: https://www.snaplogic.com/request-demo
+    type: RequestDemo
+  - name: SnapLogic Pricing Model for iPaaS, ETL, AI Agents
+    description: 'null'
+    url: https://www.snaplogic.com/pricing
+    type: Pricing
+  - name: Security Standards | SnapLogic
+    description: 'null'
+    url: https://www.snaplogic.com/security-standards
+    type: Security
+  - name: SnapLogic Glossary
+    description: 'null'
+    url: https://www.snaplogic.com/glossary
+    type: Glossary
+  - name: Get Help with the SnapLogic Platform for Generative Integration
+    description: 'null'
+    url: https://www.snaplogic.com/getting-help
+    type: Support
+  - name: Privacy and Cookie Policy | SnapLogic
+    description: 'null'
+    url: https://www.snaplogic.com/privacy-policy
+    type: PrivacyPolicy
+  - name: Terms of Use | SnapLogic
+    description: 'null'
+    url: https://www.snaplogic.com/terms-of-use
+    type: TermsOfService
 created: '2025-06-06'
 modified: '2025-06-09'
 position: Consumer
