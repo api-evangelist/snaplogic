@@ -1,7 +1,7 @@
-# Prismatic (prismatic)
-The most efficient way to build, deploy, and manage integrations. Prismatic empowers everyone on your team with integration tools for devs and non-devs alike. 
+# SnapLogic (snaplogic)
+Our AI-powered, all-in-one generative integration platform unifies your data and streamlines workflows to transform your business. 
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/prismatic/refs/heads/main/apis.yml)
+**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/snaplogic/refs/heads/main/apis.yml)
 
 ## Scope
 
@@ -11,48 +11,52 @@ The most efficient way to build, deploy, and manage integrations. Prismatic empo
 
 ## Tags:
 
- - Integrations, Embedded SaaS Integration, Workflows, Connectors
+ - Automation, Integrations, Data Integration, Management
 
 ## Timestamps
 
-- **Created:** 2025-06-05 
-- **Modified:** 2025-06-05 
+- **Created:** 2025-06-06 
+- **Modified:** 2025-06-09 
 
 ## APIs
 
-### Prismatics GraphQL API
-Prismatic provides a GraphQL-based API for you to build, deploy, and support your integrations programmatically. While we recommend that new users use the web app or Prismatic CLI tool to manage Prismatic resources, developer users will likely want to use the API to script out integration management.
+### SnapLogic
+Our AI-powered, all-in-one generative integration platform unifies your data and streamlines workflows to transform your business. 
 
-**Human URL:** [https://prismatic.io/docs/api/](https://prismatic.io/docs/api/)
+**Human URL:** [ https://www.snaplogic.com/]( https://www.snaplogic.com/)
 
 
 #### Tags:
 
- - Integrations, Embedded SaaS Integration, Workflows, Connectors
+ - API
 
 #### Properties
 
-- [Documentation](https://prismatic.io/docs/api/)
-- [Authentication](https://prismatic.io/docs/api/authentication/)
-- [Pagination](https://prismatic.io/docs/api/pagination/)
-- [Authentication](https://prismatic.io/docs/api/authentication/)
+- [Documentation]( https://www.snaplogic.com/)
 
 ## Common Properties
 
-- [SDKs](https://prismatic.io/docs/custom-connectors/)
-- [CI/CD](https://prismatic.io/docs/api/ci-cd-system/)
-- [GitHubActions](https://prismatic.io/docs/api/github-actions/)
-- [CLI](https://prismatic.io/docs/cli/)
-- [ChangeLog](https://prismatic.io/docs/changelog/)
-- [Explorer](https://prismatic.io/docs/explorer/)
-- [GettingStarted](https://prismatic.io/docs/integrations/low-code-integration-designer/get-started/first-integration/)
-- [PrivacyPolicy](https://prismatic.io/legal/privacy/)
-- [TermsOfService](https://prismatic.io/legal/terms/)
-- [Security](https://prismatic.io/legal/security/)
-- [GitHubOrganization](https://github.com/prismatic-io)
-- [Integrations](https://prismatic.io/connectors/)
-- [Features](undefined)
-- [Benefits](undefined)
+- [Documentation](https://docs-snaplogic.atlassian.net/wiki/spaces/SD/overview)
+- [LinkedIn](https://www.linkedin.com/company/snaplogic/)
+- [Website](https://www.snaplogic.com/)
+- [Integrations](https://www.snaplogic.com/products/snaps)
+- [UseCases](https://www.snaplogic.com/use-cases)
+- [RequestDemo](https://www.snaplogic.com/request-demo)
+- [Partners](https://www.snaplogic.com/partners)
+- [Customers](https://www.snaplogic.com/customers)
+- [Blog](https://www.snaplogic.com/blog)
+- [eBooks](https://www.snaplogic.com/resources?_resource_type=ebook)
+- [Podcast](https://www.snaplogic.com/resources/podcasts)
+- [Webinars](https://www.snaplogic.com/resources/events)
+- [Training](https://www.snaplogic.com/resources/events/customer-workshops)
+- [Login](https://cdn.elastic.snaplogic.com/sl/login.html?referrer=https://www.snaplogic.com/)
+- [RequestDemo](https://www.snaplogic.com/request-demo)
+- [Pricing](https://www.snaplogic.com/pricing)
+- [Security](https://www.snaplogic.com/security-standards)
+- [Glossary](https://www.snaplogic.com/glossary)
+- [Support](https://www.snaplogic.com/getting-help)
+- [PrivacyPolicy](https://www.snaplogic.com/privacy-policy)
+- [TermsOfService](https://www.snaplogic.com/terms-of-use)
 
 ## Maintainers
 
