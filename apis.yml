@@ -5,9 +5,9 @@ apis:
   - aid: snaplogic:snaplogic-public-apis
     name: SnapLogic Public APIs
     tags:
+      - Automation
       - Integration
       - iPaaS
-      - Automation
     humanURL: https://docs.snaplogic.com/public-apis/public-apis-about.html
     properties:
       - url: https://docs.snaplogic.com/public-apis/public-apis-about.html
@@ -35,9 +35,9 @@ apis:
   - aid: snaplogic:snaplogic-api-management
     name: SnapLogic API Management
     tags:
-      - API Management
       - API Gateway
       - API Lifecycle
+      - API Management
     humanURL: https://www.snaplogic.com/products/api-management-development
     properties:
       - url: https://www.snaplogic.com/products/api-management-development
@@ -58,9 +58,9 @@ apis:
   - aid: snaplogic:snaplogic-snap-development
     name: SnapLogic Snap Development SDK
     tags:
-      - SDK
       - Development
       - Integration
+      - SDK
     humanURL: https://developer.snaplogic.com/
     properties:
       - url: https://developer.snaplogic.com/
@@ -76,8 +76,7 @@ apis:
       input schema validation, error view handling, and unit testing.
   - aid: snaplogic:snaplogic
     name: SnapLogic
-    tags:
-      - API
+    tags: []
     humanURL: ' https://www.snaplogic.com/'
     properties:
       - url: ' https://www.snaplogic.com/'
@@ -87,13 +86,13 @@ apis:
       data and streamlines workflows to transform your business.
 name: SnapLogic
 tags:
-  - Automation
-  - Integrations
-  - Data Integration
-  - Management
-  - iPaaS
   - AI
   - API Management
+  - Automation
+  - Data Integration
+  - Integrations
+  - iPaaS
+  - Management
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
