@@ -1,0 +1,63 @@
+{
+  "title": "List Pipeline Executions",
+  "description": "Example request and response for listing pipeline executions in a SnapLogic organization via the Runtime API",
+  "request": {
+    "method": "GET",
+    "url": "https://elastic.snaplogic.com/api/1/runtime/myorg?status=failed&limit=25",
+    "headers": {
+      "Authorization": "Bearer {jwt_token}"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "http_status_code": 200,
+      "response_map": {
+        "total": 3,
+        "offset": 0,
+        "count": 3,
+        "executions": [
+          {
+            "ruuid": "c1b2a390-1234-5678-abcd-ef0123456789",
+            "status": "failed",
+            "pipeline_path": "/myorg/DataOps/salesforce-sync",
+            "label": "Salesforce Contact Sync",
+            "start_time": "2026-05-02T08:30:00.000Z",
+            "end_time": "2026-05-02T08:31:45.000Z",
+            "elapsed": 105,
+            "error_message": "Connection timeout after 60 seconds",
+            "user_name": "data-team@example.com",
+            "org": "myorg"
+          },
+          {
+            "ruuid": "d2c3b401-2345-6789-bcde-f01234567890",
+            "status": "failed",
+            "pipeline_path": "/myorg/DataOps/snowflake-load",
+            "label": "Snowflake Daily Load",
+            "start_time": "2026-05-02T06:00:00.000Z",
+            "end_time": "2026-05-02T06:02:12.000Z",
+            "elapsed": 132,
+            "error_message": "SQL compilation error: column not found",
+            "user_name": "scheduler@snaplogic.com",
+            "org": "myorg"
+          },
+          {
+            "ruuid": "e3d4c512-3456-7890-cdef-012345678901",
+            "status": "failed",
+            "pipeline_path": "/myorg/Finance/invoice-processing",
+            "label": "Invoice Processing Pipeline",
+            "start_time": "2026-05-01T22:15:00.000Z",
+            "end_time": "2026-05-01T22:15:08.000Z",
+            "elapsed": 8,
+            "error_message": "Authentication failed: invalid API key",
+            "user_name": "finance-bot@example.com",
+            "org": "myorg"
+          }
+        ]
+      }
+    }
+  }
+}

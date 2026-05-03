@@ -1,0 +1,188 @@
+name: SnapLogic Vocabulary
+description: >-
+  Domain vocabulary for SnapLogic's AI-powered generative integration platform,
+  covering Snaps, pipelines, Snaplex infrastructure, the public API, and
+  integration concepts for iPaaS use cases.
+tags:
+  - API Management
+  - Automation
+  - Data Integration
+  - Integration
+  - iPaaS
+created: '2026-05-02'
+modified: '2026-05-02'
+
+terms:
+  - term: Snap
+    definition: >-
+      The fundamental unit of integration in SnapLogic. A Snap is a pre-built
+      connector or data transformation component that can be configured without
+      coding. Snaps connect to data sources, perform transformations, or call
+      APIs. Examples: CSV Parser, REST GET, Salesforce Read, Snowflake Bulk Load.
+    tags:
+      - Core Concept
+      - Integration
+
+  - term: Snap Pack
+    definition: >-
+      A collection of related Snaps bundled together for a specific integration
+      target or domain. Examples: Salesforce Snap Pack, Snowflake Snap Pack,
+      REST Snap Pack, AI Snap Pack.
+    tags:
+      - Core Concept
+      - Integration
+
+  - term: Pipeline
+    definition: >-
+      A visual workflow in SnapLogic composed of connected Snaps that process
+      and transform data. Pipelines can be triggered via tasks, APIs, or scheduled
+      runs. Pipelines run on Snaplex nodes.
+    tags:
+      - Core Concept
+      - Integration
+
+  - term: Snaplex
+    definition: >-
+      The execution engine that runs SnapLogic pipelines. A Snaplex consists of
+      one or more nodes (Groundplex or Cloudplex) that handle data processing.
+      Groundplexes run on-premises or in private clouds; Cloudplexes run in
+      SnapLogic's cloud.
+    tags:
+      - Infrastructure
+
+  - term: Groundplex
+    definition: >-
+      A Snaplex deployment running on customer-managed infrastructure (on-premises,
+      private cloud, or IaaS). Provides data residency, security, and access to
+      internal systems that cannot be reached from the cloud.
+    tags:
+      - Infrastructure
+      - Security
+
+  - term: Cloudplex
+    definition: >-
+      A SnapLogic-managed Snaplex running in the SnapLogic cloud environment.
+      Ideal for cloud-to-cloud integrations and use cases where data residency
+      in SnapLogic's infrastructure is acceptable.
+    tags:
+      - Cloud
+      - Infrastructure
+
+  - term: Task
+    definition: >-
+      A configuration that defines how and when a pipeline executes. SnapLogic
+      supports three task types: Triggered Tasks (API-invoked), Scheduled Tasks
+      (cron-based), and Ultra Tasks (for low-latency, high-frequency execution).
+    tags:
+      - Execution
+      - Integration
+
+  - term: Ultra Task
+    definition: >-
+      A high-performance task type in SnapLogic optimized for low-latency,
+      high-throughput pipeline execution. Ultra Tasks can be exposed as REST APIs
+      and downloaded as OpenAPI 2.0 or 3.0 specifications.
+    tags:
+      - Execution
+      - High Performance
+
+  - term: Triggered Task
+    definition: >-
+      A pipeline task that executes in response to an API call or webhook. Supports
+      synchronous and asynchronous execution modes. Can pass input parameters via
+      the request body.
+    tags:
+      - API
+      - Execution
+
+  - term: RUUID
+    abbreviation: RUUID
+    definition: >-
+      Runtime UUID. The unique identifier assigned to each pipeline execution
+      instance. Used in the Runtime APIs to query execution status, retrieve logs,
+      and control execution (stop, resume).
+    tags:
+      - Runtime
+      - Identifier
+
+  - term: Snap Statistics (Snap Stats)
+    definition: >-
+      Per-Snap execution metrics captured during a pipeline run, including records
+      processed (in/out), bytes read/written, and execution duration. Available
+      via the Snap Statistics API and Runtime API.
+    tags:
+      - Monitoring
+      - Runtime
+
+  - term: Generative Integration
+    definition: >-
+      SnapLogic's term for AI-augmented integration that uses generative AI to
+      suggest pipeline designs, auto-map data fields, generate Snaps, and assist
+      in building integrations through natural language.
+    tags:
+      - AI
+      - Core Concept
+
+  - term: Agent Creator
+    definition: >-
+      SnapLogic's feature for building AI agents that orchestrate complex workflows
+      using LLMs, Snaps, and external APIs. Agents can take actions, call APIs,
+      and make decisions based on data retrieved through pipelines.
+    tags:
+      - AI
+      - Agents
+
+  - term: Project Space
+    definition: >-
+      A top-level organizational container within a SnapLogic org that groups
+      related projects. Analogous to a namespace or folder hierarchy for managing
+      assets across teams.
+    tags:
+      - Organization
+
+  - term: Project
+    definition: >-
+      A container within a Project Space that holds pipelines, tasks, files, and
+      other assets. Projects can be linked to Git repositories for version control
+      and CI/CD workflows.
+    tags:
+      - Organization
+
+  - term: JWT (SnapLogic Authentication)
+    abbreviation: JWT
+    definition: >-
+      JSON Web Token used to authenticate SnapLogic Public API calls. JWTs are
+      generated via the SnapLogic authentication endpoint and passed as a Bearer
+      token in the Authorization header.
+    tags:
+      - Authentication
+      - Security
+
+  - term: Asset Catalog
+    definition: >-
+      SnapLogic's metadata catalog for tracking integration assets (pipelines,
+      tasks, Snaps) including custom metadata, data lineage, and asset relationships.
+      Managed via the Asset Catalog APIs.
+    tags:
+      - Governance
+      - Metadata
+
+  - term: ACL (Access Control List)
+    abbreviation: ACL
+    definition: >-
+      The permission model for SnapLogic project assets. ACLs define read, write,
+      execute, and admin permissions for users and groups on projects and project
+      spaces. Managed via the Asset Management APIs.
+    tags:
+      - Security
+      - Access Control
+
+  - term: API Management (SnapLogic APIM)
+    definition: >-
+      SnapLogic's built-in API gateway and lifecycle management capability that
+      allows pipelines to be published as managed APIs with security policies,
+      version management, and a developer portal. Managed via the API Management
+      Public APIs.
+    tags:
+      - API Management
+      - Governance

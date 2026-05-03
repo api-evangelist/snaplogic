@@ -1,0 +1,225 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "SnapLogic Pipeline Operations"
+  description: >-
+    Unified workflow capability for monitoring, controlling, and managing
+    SnapLogic integration pipeline executions. Provides operations teams,
+    DataOps engineers, and platform administrators with programmatic access
+    to pipeline execution state, performance metrics, and operational controls.
+    Uses the SnapLogic Public APIs for runtime management and asset control.
+  tags:
+    - Automation
+    - DataOps
+    - Integration
+    - iPaaS
+    - Monitoring
+    - SnapLogic
+  created: "2026-05-02"
+  modified: "2026-05-02"
+
+binds:
+  - namespace: env
+    keys:
+      SNAPLOGIC_JWT_TOKEN: SNAPLOGIC_JWT_TOKEN
+      SNAPLOGIC_ORG: SNAPLOGIC_ORG
+
+capability:
+  consumes:
+    - import: snaplogic-api
+      location: ./shared/public-apis.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: snaplogic-ops-api
+      description: "Unified REST API for SnapLogic pipeline operations and platform management."
+      resources:
+        - path: /v1/executions
+          name: executions
+          description: "List all pipeline executions"
+          operations:
+            - method: GET
+              name: list-executions
+              description: "List Pipeline Executions"
+              call: "snaplogic-api.list-pipeline-executions"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/executions/{ruuid}
+          name: execution
+          description: "Get or control a specific execution"
+          operations:
+            - method: GET
+              name: get-execution
+              description: "Get Pipeline Execution"
+              call: "snaplogic-api.get-pipeline-execution"
+              with:
+                ruuid: "rest.ruuid"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/executions/{ruuid}/stop
+          name: stop-execution
+          description: "Stop a running pipeline execution"
+          operations:
+            - method: POST
+              name: stop-execution
+              description: "Stop Pipeline Execution"
+              call: "snaplogic-api.stop-pipeline-execution"
+              with:
+                ruuid: "rest.ruuid"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/metrics
+          name: metrics
+          description: "Pipeline execution performance metrics"
+          operations:
+            - method: GET
+              name: get-metrics
+              description: "Get Execution Metrics"
+              call: "snaplogic-api.get-execution-metrics"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/assets/{path}/privileges
+          name: asset-privileges
+          description: "Asset access control management"
+          operations:
+            - method: GET
+              name: get-privileges
+              description: "Get Asset Privileges"
+              call: "snaplogic-api.get-asset-privileges"
+              with:
+                path: "rest.path"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/projects/{path}
+          name: projects
+          description: "Project lifecycle management"
+          operations:
+            - method: POST
+              name: create-project
+              description: "Create Project"
+              call: "snaplogic-api.create-project"
+              with:
+                path: "rest.path"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: DELETE
+              name: delete-project
+              description: "Delete Project"
+              call: "snaplogic-api.delete-project"
+              with:
+                path: "rest.path"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9090
+      namespace: snaplogic-ops-mcp
+      transport: http
+      description: "MCP server for AI-assisted SnapLogic pipeline operations and platform management."
+      tools:
+        - name: list-pipeline-executions
+          description: "List all running and recent pipeline executions in the SnapLogic organization"
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "snaplogic-api.list-pipeline-executions"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-pipeline-execution
+          description: "Get the status and details of a specific SnapLogic pipeline execution"
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "snaplogic-api.get-pipeline-execution"
+          with:
+            ruuid: "tools.ruuid"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: stop-pipeline-execution
+          description: "Stop a running SnapLogic pipeline execution by its runtime UUID"
+          hints:
+            readOnly: false
+            destructive: true
+            idempotent: true
+          call: "snaplogic-api.stop-pipeline-execution"
+          with:
+            ruuid: "tools.ruuid"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-execution-metrics
+          description: "Retrieve pipeline execution performance metrics and concurrency stats for the SnapLogic org"
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "snaplogic-api.get-execution-metrics"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-asset-privileges
+          description: "Get current user's access privileges for a SnapLogic project or asset path"
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "snaplogic-api.get-asset-privileges"
+          with:
+            path: "tools.path"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: grant-asset-access
+          description: "Grant access permissions to a user or group for a SnapLogic project"
+          hints:
+            readOnly: false
+            destructive: false
+          call: "snaplogic-api.grant-asset-access"
+          with:
+            path: "tools.path"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: create-project
+          description: "Create a new SnapLogic project or project space"
+          hints:
+            readOnly: false
+            destructive: false
+          call: "snaplogic-api.create-project"
+          with:
+            path: "tools.path"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: delete-project
+          description: "Delete a SnapLogic project or project space"
+          hints:
+            readOnly: false
+            destructive: true
+            idempotent: true
+          call: "snaplogic-api.delete-project"
+          with:
+            path: "tools.path"
+          outputParameters:
+            - type: object
+              mapping: "$."

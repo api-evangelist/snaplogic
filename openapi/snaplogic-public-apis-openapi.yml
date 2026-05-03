@@ -1,0 +1,639 @@
+openapi: 3.1.0
+info:
+  title: SnapLogic Public APIs
+  description: >-
+    The SnapLogic Public APIs provide programmatic management for SnapLogic
+    integration environments and project assets. The APIs cover activity tracking,
+    asset management, asset catalog and lineage, log retrieval, runtime and pipeline
+    execution control, task management, project and Git operations, Snaplex
+    infrastructure management, Snap statistics, API Management lifecycle, and user
+    and group administration. The platform authenticates API calls with basic
+    authentication and JSON Web Token (JWT) over HTTPS.
+  version: '1.0'
+  contact:
+    name: SnapLogic Support
+    url: https://docs.snaplogic.com/public-apis/public-apis-about.html
+  termsOfService: https://www.snaplogic.com/terms-of-use
+externalDocs:
+  description: SnapLogic Public APIs Documentation
+  url: https://docs.snaplogic.com/public-apis/public-apis-about.html
+servers:
+  - url: https://{org}.snaplogic.com/api/1
+    description: SnapLogic API Server
+    variables:
+      org:
+        description: Your SnapLogic organization name
+        default: elastic
+tags:
+  - name: Activity
+    description: >-
+      Retrieve activity records tracking events and operations within
+      environments and organizations.
+  - name: Asset Management
+    description: >-
+      Control project access, permissions, and asset management including
+      project creation, renaming, deletion, and ACL management.
+  - name: Asset Catalog
+    description: >-
+      Handle custom metadata, lineage, and asset details for the SnapLogic
+      asset catalog and data lineage tracking.
+  - name: Logs
+    description: >-
+      Retrieve task execution logs for pipeline runs and operational auditing.
+  - name: Runtime
+    description: >-
+      Monitor and control pipeline execution state, performance metrics, and
+      concurrent execution statistics.
+  - name: Tasks
+    description: >-
+      Enable, disable, and manage task configuration for triggered and scheduled
+      pipeline tasks.
+  - name: Projects
+    description: >-
+      Handle Git operations, project migrations, and asset management across
+      SnapLogic projects.
+  - name: Snaplex
+    description: >-
+      Manage Groundplex infrastructure nodes and Snaplex operational state.
+  - name: API Management
+    description: >-
+      Manage API versions, publication status, and policies for APIs exposed
+      through SnapLogic API Management.
+  - name: Users and Groups
+    description: >-
+      Manage user accounts, groups, and membership for SnapLogic organizations.
+security:
+  - bearerAuth: []
+  - basicAuth: []
+paths:
+  /runtime/{org}:
+    get:
+      operationId: listPipelineExecutions
+      summary: List Pipeline Executions
+      description: >-
+        Retrieve information about pipeline executions matching a filter within
+        the specified organization. Supports filtering by status, date range,
+        and pipeline path.
+      tags:
+        - Runtime
+      parameters:
+        - $ref: '#/components/parameters/orgPath'
+        - name: status
+          in: query
+          description: Filter executions by status (running, completed, failed, stopped)
+          schema:
+            type: string
+            enum: [running, completed, failed, stopped]
+        - name: limit
+          in: query
+          description: Maximum number of results to return
+          schema:
+            type: integer
+            default: 25
+      responses:
+        '200':
+          description: Successful retrieval of pipeline executions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RuntimeListResponse'
+        '401':
+          description: Unauthorized - invalid or expired token
+        '404':
+          description: Organization not found
+  /runtime/{org}/{ruuid}:
+    get:
+      operationId: getPipelineExecution
+      summary: Get Pipeline Execution
+      description: >-
+        Retrieve information about a specific pipeline execution identified by
+        its runtime UUID.
+      tags:
+        - Runtime
+      parameters:
+        - $ref: '#/components/parameters/orgPath'
+        - $ref: '#/components/parameters/ruuid'
+      responses:
+        '200':
+          description: Successful retrieval of pipeline execution
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RuntimeExecution'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Execution not found
+  /runtime/start/{org}/{ruuid}:
+    post:
+      operationId: resumePipelineExecution
+      summary: Resume Pipeline Execution
+      description: >-
+        Resume a resumable pipeline execution that has been paused or suspended.
+      tags:
+        - Runtime
+      parameters:
+        - $ref: '#/components/parameters/orgPath'
+        - $ref: '#/components/parameters/ruuid'
+      responses:
+        '200':
+          description: Pipeline resumed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Execution not found
+  /runtime/stop/{org}/{ruuid}:
+    post:
+      operationId: stopPipelineExecution
+      summary: Stop Pipeline Execution
+      description: >-
+        Stop a running pipeline execution identified by its runtime UUID.
+      tags:
+        - Runtime
+      parameters:
+        - $ref: '#/components/parameters/orgPath'
+        - $ref: '#/components/parameters/ruuid'
+      responses:
+        '200':
+          description: Pipeline stopped successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Execution not found
+  /runtime/apistats/{org}:
+    get:
+      operationId: getExecutionMetrics
+      summary: Get Execution Metrics
+      description: >-
+        Retrieve both concurrent and daily execution metrics for the organization.
+      tags:
+        - Runtime
+      parameters:
+        - $ref: '#/components/parameters/orgPath'
+      responses:
+        '200':
+          description: Successful retrieval of execution metrics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExecutionMetrics'
+        '401':
+          description: Unauthorized
+  /runtime/apistats/{org}/daily:
+    get:
+      operationId: getDailyExecutionMetrics
+      summary: Get Daily Execution Metrics
+      description: >-
+        Retrieve daily execution metrics for the organization, showing pipeline
+        execution counts and durations by day.
+      tags:
+        - Runtime
+      parameters:
+        - $ref: '#/components/parameters/orgPath'
+      responses:
+        '200':
+          description: Successful retrieval of daily execution metrics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DailyMetrics'
+        '401':
+          description: Unauthorized
+  /runtime/apistats/{org}/concurrent:
+    get:
+      operationId: getConcurrentExecutionMetrics
+      summary: Get Concurrent Execution Metrics
+      description: >-
+        Retrieve concurrent execution metrics showing the number of pipelines
+        running simultaneously in the organization.
+      tags:
+        - Runtime
+      parameters:
+        - $ref: '#/components/parameters/orgPath'
+      responses:
+        '200':
+          description: Successful retrieval of concurrent metrics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConcurrentMetrics'
+        '401':
+          description: Unauthorized
+  /assetapi/acl/{path}:
+    get:
+      operationId: getAssetPrivileges
+      summary: Get Asset Privileges
+      description: >-
+        Retrieve the privileges of the current user for the specified project
+        or space path.
+      tags:
+        - Asset Management
+      parameters:
+        - $ref: '#/components/parameters/assetPath'
+      responses:
+        '200':
+          description: Successful retrieval of privileges
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AclResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Asset not found
+    post:
+      operationId: grantAssetAccess
+      summary: Grant Asset Access
+      description: >-
+        Grant access to a project or project space to a user or group.
+      tags:
+        - Asset Management
+      parameters:
+        - $ref: '#/components/parameters/assetPath'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AclRequest'
+      responses:
+        '200':
+          description: Access granted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+    delete:
+      operationId: revokeAssetAccess
+      summary: Revoke Asset Access
+      description: >-
+        Revoke all project access from a user or group for the specified path.
+      tags:
+        - Asset Management
+      parameters:
+        - $ref: '#/components/parameters/assetPath'
+      responses:
+        '200':
+          description: Access revoked successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '401':
+          description: Unauthorized
+  /assetapi/project/{path}:
+    post:
+      operationId: createProject
+      summary: Create Project
+      description: >-
+        Create a new project or project space at the specified path within
+        the SnapLogic organization.
+      tags:
+        - Asset Management
+      parameters:
+        - $ref: '#/components/parameters/assetPath'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectRequest'
+      responses:
+        '200':
+          description: Project created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+    put:
+      operationId: renameProject
+      summary: Rename Project
+      description: >-
+        Rename a project or project space at the specified path.
+      tags:
+        - Asset Management
+      parameters:
+        - $ref: '#/components/parameters/assetPath'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectRenameRequest'
+      responses:
+        '200':
+          description: Project renamed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '401':
+          description: Unauthorized
+    delete:
+      operationId: deleteProject
+      summary: Delete Project
+      description: >-
+        Delete a project or project space at the specified path.
+      tags:
+        - Asset Management
+      parameters:
+        - $ref: '#/components/parameters/assetPath'
+      responses:
+        '200':
+          description: Project deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Project not found
+  /assetapi/user-settings:
+    get:
+      operationId: getUserSettings
+      summary: Get User Settings
+      description: >-
+        Retrieve app access information and settings for the current user.
+      tags:
+        - Users and Groups
+      responses:
+        '200':
+          description: Successful retrieval of user settings
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserSettings'
+        '401':
+          description: Unauthorized
+  /assetapi/user-app-access:
+    post:
+      operationId: updateUserAppAccess
+      summary: Update User App Access
+      description: >-
+        Grant or revoke app access for a user within the SnapLogic organization.
+      tags:
+        - Users and Groups
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserAppAccessRequest'
+      responses:
+        '200':
+          description: App access updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /assetapi/update-owner:
+    post:
+      operationId: updateTaskOwner
+      summary: Update Task Owner
+      description: >-
+        Update the owner of a task within the SnapLogic organization.
+      tags:
+        - Tasks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateOwnerRequest'
+      responses:
+        '200':
+          description: Owner updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT token obtained from the SnapLogic authentication endpoint
+    basicAuth:
+      type: http
+      scheme: basic
+      description: Basic authentication with SnapLogic username and password
+  parameters:
+    orgPath:
+      name: org
+      in: path
+      required: true
+      description: The SnapLogic organization name
+      schema:
+        type: string
+    ruuid:
+      name: ruuid
+      in: path
+      required: true
+      description: The runtime UUID of the pipeline execution
+      schema:
+        type: string
+    assetPath:
+      name: path
+      in: path
+      required: true
+      description: The path to the asset within the SnapLogic project hierarchy
+      schema:
+        type: string
+  schemas:
+    SuccessResponse:
+      type: object
+      properties:
+        http_status_code:
+          type: integer
+          description: HTTP status code of the response
+        response_map:
+          type: object
+          description: Additional response data
+    RuntimeExecution:
+      type: object
+      properties:
+        ruuid:
+          type: string
+          description: Runtime UUID of the pipeline execution
+        status:
+          type: string
+          enum: [running, completed, failed, stopped, suspended]
+          description: Current status of the pipeline execution
+        pipeline_path:
+          type: string
+          description: Full path to the pipeline being executed
+        start_time:
+          type: string
+          format: date-time
+          description: When the execution started
+        end_time:
+          type: string
+          format: date-time
+          description: When the execution ended (null if still running)
+        elapsed:
+          type: number
+          description: Elapsed execution time in seconds
+        error_message:
+          type: string
+          description: Error message if execution failed
+        user_name:
+          type: string
+          description: Username of the user who triggered the execution
+    RuntimeListResponse:
+      type: object
+      properties:
+        total:
+          type: integer
+          description: Total number of executions matching the filter
+        offset:
+          type: integer
+          description: Offset for pagination
+        count:
+          type: integer
+          description: Number of executions returned
+        executions:
+          type: array
+          items:
+            $ref: '#/schemas/RuntimeExecution'
+    ExecutionMetrics:
+      type: object
+      properties:
+        concurrent:
+          $ref: '#/schemas/ConcurrentMetrics'
+        daily:
+          $ref: '#/schemas/DailyMetrics'
+    DailyMetrics:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+        total_executions:
+          type: integer
+        successful_executions:
+          type: integer
+        failed_executions:
+          type: integer
+        avg_duration_seconds:
+          type: number
+    ConcurrentMetrics:
+      type: object
+      properties:
+        current_concurrent:
+          type: integer
+          description: Current number of concurrent pipeline executions
+        max_concurrent:
+          type: integer
+          description: Maximum allowed concurrent executions
+        peak_concurrent:
+          type: integer
+          description: Peak concurrent executions recorded
+    AclResponse:
+      type: object
+      properties:
+        http_status_code:
+          type: integer
+        response_map:
+          type: object
+          properties:
+            permissions:
+              type: array
+              items:
+                type: string
+                enum: [read, write, execute, admin]
+    AclRequest:
+      type: object
+      required:
+        - perms
+        - users
+      properties:
+        perms:
+          type: array
+          items:
+            type: string
+            enum: [read, write, execute, admin]
+          description: Permissions to grant
+        users:
+          type: array
+          items:
+            type: string
+          description: Usernames or group names to grant access to
+    ProjectRequest:
+      type: object
+      required:
+        - path
+      properties:
+        path:
+          type: string
+          description: Path for the new project or project space
+        description:
+          type: string
+          description: Optional description for the project
+    ProjectRenameRequest:
+      type: object
+      required:
+        - new_name
+      properties:
+        new_name:
+          type: string
+          description: New name for the project
+    UserSettings:
+      type: object
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+        app_access:
+          type: array
+          items:
+            type: string
+    UserAppAccessRequest:
+      type: object
+      required:
+        - username
+        - action
+      properties:
+        username:
+          type: string
+          description: Username to update access for
+        action:
+          type: string
+          enum: [grant, revoke]
+          description: Whether to grant or revoke access
+    UpdateOwnerRequest:
+      type: object
+      required:
+        - path
+        - new_owner
+      properties:
+        path:
+          type: string
+          description: Path to the task to update ownership
+        new_owner:
+          type: string
+          description: Username of the new owner

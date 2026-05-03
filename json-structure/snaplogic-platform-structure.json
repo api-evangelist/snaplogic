@@ -1,0 +1,99 @@
+{
+  "name": "SnapLogic Platform Structure",
+  "description": "Hierarchical structure of SnapLogic organizational, project, and pipeline objects",
+  "version": "1.0",
+  "structure": {
+    "Organization": {
+      "description": "Top-level SnapLogic entity (tenant/org); all other objects belong to an org",
+      "fields": {
+        "name": "string (org identifier, used in URL paths)",
+        "display_name": "string",
+        "admin_users": "array[string (usernames)]",
+        "snaplex_nodes": "array[string (Snaplex node hostnames)]"
+      },
+      "children": {
+        "ProjectSpace": {
+          "description": "Top-level container for organizing projects within an organization",
+          "fields": {
+            "path": "string (e.g., /org_name/project_space_name)",
+            "description": "string",
+            "owner": "string (username)"
+          },
+          "children": {
+            "Project": {
+              "description": "Container for pipelines, tasks, and other assets",
+              "fields": {
+                "path": "string (e.g., /org_name/space/project_name)",
+                "description": "string",
+                "owner": "string (username)",
+                "git_repo": "string (optional GitHub repo URL)",
+                "created_at": "datetime",
+                "updated_at": "datetime"
+              },
+              "children": {
+                "Pipeline": {
+                  "description": "An integration pipeline composed of Snaps",
+                  "fields": {
+                    "path": "string",
+                    "label": "string",
+                    "description": "string",
+                    "version": "string",
+                    "created_by": "string (username)",
+                    "created_at": "datetime",
+                    "updated_at": "datetime"
+                  },
+                  "children": {
+                    "Snap": {
+                      "description": "An individual data processing unit within a pipeline",
+                      "fields": {
+                        "id": "string (snap ID)",
+                        "type": "string (snap type, e.g., CSVParser, RESTGet)",
+                        "label": "string",
+                        "properties": "object (snap-specific configuration)"
+                      }
+                    }
+                  }
+                },
+                "Task": {
+                  "description": "A scheduled or triggered execution configuration for a pipeline",
+                  "fields": {
+                    "path": "string",
+                    "label": "string",
+                    "type": "enum: triggered | scheduled | ultra",
+                    "enabled": "boolean",
+                    "pipeline_path": "string (ref: Pipeline.path)",
+                    "owner": "string (username)",
+                    "params": "object (pipeline input parameters)"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "Snaplex": {
+          "description": "A Snaplex is a cluster of Groundplex or Cloudplex nodes that execute pipelines",
+          "fields": {
+            "name": "string",
+            "type": "enum: groundplex | cloudplex",
+            "nodes": "array[string (hostnames)]",
+            "status": "enum: running | degraded | stopped"
+          }
+        }
+      }
+    },
+    "RuntimeExecution": {
+      "description": "A pipeline execution instance (created when a task or API triggers a pipeline run)",
+      "fields": {
+        "ruuid": "string (runtime UUID)",
+        "status": "enum: running | completed | failed | stopped | suspended",
+        "pipeline_path": "string (ref: Pipeline.path)",
+        "start_time": "datetime",
+        "end_time": "datetime (null if running)",
+        "elapsed": "number (seconds)",
+        "error_message": "string (null if success)",
+        "user_name": "string (triggering user)",
+        "snap_stats": "array[SnapStats]"
+      }
+    }
+  }
+}

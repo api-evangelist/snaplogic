@@ -1,0 +1,122 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "schema": "https://schema.org/",
+    "snap": "https://api-evangelist.github.io/snaplogic/vocabulary/",
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "identifier": "schema:identifier",
+    "SoftwareApplication": "schema:SoftwareApplication",
+    "Organization": "schema:Organization",
+    "IntegrationPlatform": {
+      "@id": "snap:IntegrationPlatform",
+      "@type": "schema:SoftwareApplication"
+    },
+    "Pipeline": {
+      "@id": "snap:Pipeline",
+      "@type": "schema:Action"
+    },
+    "Snap": {
+      "@id": "snap:Snap",
+      "@type": "schema:SoftwareApplication"
+    },
+    "Task": {
+      "@id": "snap:Task",
+      "@type": "schema:Action"
+    },
+    "Snaplex": {
+      "@id": "snap:Snaplex",
+      "@type": "schema:ComputerSystem"
+    },
+    "RuntimeExecution": {
+      "@id": "snap:RuntimeExecution",
+      "@type": "schema:Action"
+    },
+    "ruuid": {
+      "@id": "snap:ruuid",
+      "@type": "xsd:string"
+    },
+    "pipelinePath": {
+      "@id": "snap:pipelinePath",
+      "@type": "xsd:string"
+    },
+    "executionStatus": {
+      "@id": "snap:executionStatus",
+      "@type": "xsd:string"
+    },
+    "startTime": {
+      "@id": "schema:startTime",
+      "@type": "xsd:dateTime"
+    },
+    "endTime": {
+      "@id": "schema:endTime",
+      "@type": "xsd:dateTime"
+    },
+    "elapsedSeconds": {
+      "@id": "snap:elapsedSeconds",
+      "@type": "xsd:decimal"
+    },
+    "errorMessage": {
+      "@id": "snap:errorMessage",
+      "@type": "xsd:string"
+    },
+    "triggeringUser": {
+      "@id": "snap:triggeringUser",
+      "@type": "xsd:string"
+    },
+    "snapType": {
+      "@id": "snap:snapType",
+      "@type": "xsd:string"
+    },
+    "recordsIn": {
+      "@id": "snap:recordsIn",
+      "@type": "xsd:integer"
+    },
+    "recordsOut": {
+      "@id": "snap:recordsOut",
+      "@type": "xsd:integer"
+    },
+    "bytesProcessed": {
+      "@id": "snap:bytesProcessed",
+      "@type": "xsd:integer"
+    },
+    "orgName": {
+      "@id": "snap:orgName",
+      "@type": "xsd:string"
+    },
+    "projectPath": {
+      "@id": "snap:projectPath",
+      "@type": "xsd:string"
+    },
+    "snaplexNode": {
+      "@id": "snap:snaplexNode",
+      "@type": "xsd:string"
+    },
+    "taskType": {
+      "@id": "snap:taskType",
+      "@type": "xsd:string"
+    },
+    "isEnabled": {
+      "@id": "snap:isEnabled",
+      "@type": "xsd:boolean"
+    },
+    "concurrentExecutions": {
+      "@id": "snap:concurrentExecutions",
+      "@type": "xsd:integer"
+    },
+    "maxConcurrentExecutions": {
+      "@id": "snap:maxConcurrentExecutions",
+      "@type": "xsd:integer"
+    },
+    "createdAt": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "updatedAt": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    }
+  }
+}

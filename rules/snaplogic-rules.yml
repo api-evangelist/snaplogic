@@ -1,0 +1,82 @@
+extends: spectral:oas
+rules:
+  # Operation naming
+  snaplogic-operation-id-camel-case:
+    description: Operation IDs must use camelCase naming convention
+    message: "operationId '{{value}}' must be camelCase"
+    severity: warn
+    given: "$.paths[*][*].operationId"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]*$"
+
+  # Auth requirements
+  snaplogic-security-defined:
+    description: All SnapLogic API operations must define security (JWT or Basic Auth)
+    message: "Operation must define security requirements (JWT bearer or Basic Auth)"
+    severity: error
+    given: "$.paths[*][get,post,put,delete,patch]"
+    then:
+      field: security
+      function: truthy
+
+  # Tag requirements
+  snaplogic-operation-tag:
+    description: All operations must have at least one tag for grouping
+    message: "Operation must have at least one tag"
+    severity: warn
+    given: "$.paths[*][get,post,put,delete,patch]"
+    then:
+      field: tags
+      function: truthy
+
+  # Summary requirements
+  snaplogic-operation-summary:
+    description: All operations must have a summary in Title Case
+    message: "Operation must have a summary"
+    severity: warn
+    given: "$.paths[*][get,post,put,delete,patch]"
+    then:
+      field: summary
+      function: truthy
+
+  # Description requirements
+  snaplogic-operation-description:
+    description: All operations should have a detailed description
+    message: "Operation should have a description"
+    severity: info
+    given: "$.paths[*][get,post,put,delete,patch]"
+    then:
+      field: description
+      function: truthy
+
+  # Response schema
+  snaplogic-success-response-schema:
+    description: All successful responses should define a schema
+    message: "200/201 response should have a defined schema"
+    severity: warn
+    given: "$.paths[*][*].responses['200'].content"
+    then:
+      function: truthy
+
+  # Path parameter consistency
+  snaplogic-path-params-defined:
+    description: All path parameters must be defined in the parameters section
+    message: "Path parameters must be defined"
+    severity: error
+    given: "$.paths[*][*].parameters[*][?(@.in == 'path')]"
+    then:
+      field: required
+      function: truthy
+
+  # Server variables
+  snaplogic-server-variables:
+    description: Server URLs should include org variable for multi-tenant support
+    message: "Server URL should include {org} variable for SnapLogic multi-tenancy"
+    severity: info
+    given: "$.servers[*].url"
+    then:
+      function: pattern
+      functionOptions:
+        match: ".*\\{org\\}.*"

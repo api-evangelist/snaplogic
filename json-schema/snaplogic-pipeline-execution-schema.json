@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://docs.snaplogic.com/schemas/pipeline-execution.json",
+  "title": "SnapLogic Pipeline Execution",
+  "description": "Schema for SnapLogic pipeline execution objects returned by the Runtime APIs",
+  "type": "object",
+  "properties": {
+    "ruuid": {
+      "type": "string",
+      "description": "Runtime UUID uniquely identifying the pipeline execution"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["running", "completed", "failed", "stopped", "suspended"],
+      "description": "Current status of the pipeline execution"
+    },
+    "pipeline_path": {
+      "type": "string",
+      "description": "Full path to the pipeline in the SnapLogic project hierarchy"
+    },
+    "start_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the execution started"
+    },
+    "end_time": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the execution ended (null if still running)"
+    },
+    "elapsed": {
+      "type": "number",
+      "description": "Elapsed execution time in seconds"
+    },
+    "error_message": {
+      "type": ["string", "null"],
+      "description": "Error message if the execution failed"
+    },
+    "user_name": {
+      "type": "string",
+      "description": "SnapLogic username of the user who triggered the execution"
+    },
+    "org": {
+      "type": "string",
+      "description": "SnapLogic organization the execution belongs to"
+    },
+    "label": {
+      "type": "string",
+      "description": "Display label for the pipeline execution"
+    },
+    "snap_stats": {
+      "type": "array",
+      "description": "Per-Snap execution statistics",
+      "items": {
+        "type": "object",
+        "properties": {
+          "snap_id": {
+            "type": "string"
+          },
+          "snap_type": {
+            "type": "string"
+          },
+          "records_in": {
+            "type": "integer"
+          },
+          "records_out": {
+            "type": "integer"
+          },
+          "bytes_in": {
+            "type": "integer"
+          },
+          "bytes_out": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  },
+  "required": ["ruuid", "status", "pipeline_path"]
+}

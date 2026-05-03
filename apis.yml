@@ -12,6 +12,8 @@ apis:
     properties:
       - url: https://docs.snaplogic.com/public-apis/public-apis-about.html
         type: Documentation
+      - url: https://raw.githubusercontent.com/api-evangelist/snaplogic/refs/heads/main/openapi/snaplogic-public-apis-openapi.yml
+        type: OpenAPI
       - url: https://docs.snaplogic.com/public-apis/apis-asset.html
         type: Documentation
       - url: https://docs.snaplogic.com/public-apis/apis-runtime.html
