@@ -1,0 +1,13 @@
+{
+  "repo": "snaplogic",
+  "feeds": [
+    {
+      "source": "https://www.snaplogic.com/blog",
+      "feed_url": "https://www.snaplogic.com/feed",
+      "saved": 10,
+      "title": "SnapLogic"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:36:32Z"
+}
