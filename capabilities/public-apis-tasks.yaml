@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SnapLogic Public APIs — Tasks
+  description: 'SnapLogic Public APIs — Tasks. 1 operations. Lead operation: Update Task Owner. Self-contained Naftiko capability
+    covering one Snaplogic business surface.'
+  tags:
+  - Snaplogic
+  - Tasks
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SNAPLOGIC_API_KEY: SNAPLOGIC_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: public-apis-tasks
+    baseUri: https://{org}.snaplogic.com/api/1
+    description: SnapLogic Public APIs — Tasks business capability. Self-contained, no shared references.
+    resources:
+    - name: assetapi-update-owner
+      path: /assetapi/update-owner
+      operations:
+      - name: updatetaskowner
+        method: POST
+        description: Update Task Owner
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.SNAPLOGIC_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: public-apis-tasks-rest
+    port: 8080
+    description: REST adapter for SnapLogic Public APIs — Tasks. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/assetapi/update-owner
+      name: assetapi-update-owner
+      description: REST surface for assetapi-update-owner.
+      operations:
+      - method: POST
+        name: updatetaskowner
+        description: Update Task Owner
+        call: public-apis-tasks.updatetaskowner
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: public-apis-tasks-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SnapLogic Public APIs — Tasks. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: update-task-owner
+      description: Update Task Owner
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-apis-tasks.updatetaskowner
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

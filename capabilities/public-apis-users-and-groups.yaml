@@ -1,0 +1,112 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SnapLogic Public APIs — Users and Groups
+  description: 'SnapLogic Public APIs — Users and Groups. 2 operations. Lead operation: Update User App Access. Self-contained
+    Naftiko capability covering one Snaplogic business surface.'
+  tags:
+  - Snaplogic
+  - Users and Groups
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SNAPLOGIC_API_KEY: SNAPLOGIC_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: public-apis-users-and-groups
+    baseUri: https://{org}.snaplogic.com/api/1
+    description: SnapLogic Public APIs — Users and Groups business capability. Self-contained, no shared references.
+    resources:
+    - name: assetapi-user-app-access
+      path: /assetapi/user-app-access
+      operations:
+      - name: updateuserappaccess
+        method: POST
+        description: Update User App Access
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: assetapi-user-settings
+      path: /assetapi/user-settings
+      operations:
+      - name: getusersettings
+        method: GET
+        description: Get User Settings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.SNAPLOGIC_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: public-apis-users-and-groups-rest
+    port: 8080
+    description: REST adapter for SnapLogic Public APIs — Users and Groups. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/assetapi/user-app-access
+      name: assetapi-user-app-access
+      description: REST surface for assetapi-user-app-access.
+      operations:
+      - method: POST
+        name: updateuserappaccess
+        description: Update User App Access
+        call: public-apis-users-and-groups.updateuserappaccess
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/assetapi/user-settings
+      name: assetapi-user-settings
+      description: REST surface for assetapi-user-settings.
+      operations:
+      - method: GET
+        name: getusersettings
+        description: Get User Settings
+        call: public-apis-users-and-groups.getusersettings
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: public-apis-users-and-groups-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SnapLogic Public APIs — Users and Groups. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: update-user-app-access
+      description: Update User App Access
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: public-apis-users-and-groups.updateuserappaccess
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-user-settings
+      description: Get User Settings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: public-apis-users-and-groups.getusersettings
+      outputParameters:
+      - type: object
+        mapping: $.
