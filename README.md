@@ -1,49 +1,153 @@
-# SnapLogic
+# SnapLogic (snaplogic)
 
-SnapLogic is an AI-powered generative integration platform (iPaaS) that unifies data and streamlines workflows across enterprise systems. The platform provides Snaps (pre-built connectors), visual pipeline design, AI-assisted integration, API management, and programmatic platform management through the SnapLogic Public APIs.
+Our AI-powered, all-in-one generative integration platform unifies your data and streamlines workflows to transform your business.
+
+**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/snaplogic/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/snaplogic/refs/heads/main/apis.yml)
+
+## Scope
+
+- **Type:** Index
+- **Position:** Consumer
+- **Access:** 3rd-Party
+
+## Tags
+
+- AI
+- API Management
+- Automation
+- Data Integration
+- Integrations
+- iPaaS
+- Management
+
+## Timestamps
+
+- **Created:** 2025-06-06T00:00:00.000Z
+- **Modified:** 2026-05-19
 
 ## APIs
 
-- [SnapLogic Public APIs](https://docs.snaplogic.com/public-apis/public-apis-about.html) - Programmatic management for pipeline execution control, asset management, user/group administration, Snaplex infrastructure, tasks, projects, and API Management lifecycle.
-- [SnapLogic API Management](https://www.snaplogic.com/products/api-management-development) - API gateway and lifecycle management for exposing pipelines as managed APIs.
-- [SnapLogic Snap Development SDK](https://developer.snaplogic.com/) - Java-based SDK for building custom Snaps.
+### SnapLogic Public APIs
 
-## Properties
+SnapLogic Public APIs provide programmatic management for your environment and project assets. The APIs cover activity tracking, asset management, asset catalog and lineage, log retrieval, runtime and pipeline execution control, task management, project and Git operations, Snaplex infrastructure management, Snap statistics, API Management lifecycle, and user and group administration. The platform authenticates API calls with basic authentication and JSON Web Token (JWT) over HTTPS.
 
-- [Website](https://www.snaplogic.com)
-- [Documentation](https://docs.snaplogic.com/)
-- [Developer Documentation](https://developer.snaplogic.com/)
-- [GitHub Organization](https://github.com/SnapLogic)
-- [Community Forum](https://community.snaplogic.com)
-- [Pricing](https://www.snaplogic.com/pricing)
+- **Human URL:** [https://docs.snaplogic.com/public-apis/public-apis-about.html](https://docs.snaplogic.com/public-apis/public-apis-about.html)
+
+#### Tags
+
+- Automation
+- Integration
+- iPaaS
+
+#### Properties
+
+- [Documentation](https://docs.snaplogic.com/public-apis/public-apis-about.html)
+- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/snaplogic/refs/heads/main/openapi/snaplogic-public-apis-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Documentation](https://docs.snaplogic.com/public-apis/apis-asset.html)
+- [Documentation](https://docs.snaplogic.com/public-apis/apis-runtime.html)
+- [Documentation](https://docs.snaplogic.com/public-apis/apis-project.html)
+- [Documentation](https://docs.snaplogic.com/public-apis/apis-apim.html)
+- [Documentation](https://docs.snaplogic.com/public-apis/apis-user-and-group.html)
+- [Authentication](https://docs.snaplogic.com/public-apis/entra-id-configuration.html)
+- [Postman Collection](collections/snaplogic-public-apis.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/snaplogic-public-apis.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### SnapLogic API Management
+
+SnapLogic API Management enables organizations to create, manage, secure, and monitor APIs throughout their lifecycle. It supports exposing SnapLogic pipelines as APIs or creating APIs from an OpenAPI specification, applying security policies, managing versions, publishing to a customizable developer portal, and monitoring API metrics and performance across on-premises, hybrid, and cloud environments.
+
+- **Human URL:** [https://www.snaplogic.com/products/api-management-development](https://www.snaplogic.com/products/api-management-development)
+
+#### Tags
+
+- API Gateway
+- API Lifecycle
+- API Management
+
+#### Properties
+
+- [Documentation](https://www.snaplogic.com/products/api-management-development)
+- [Documentation](https://docs.snaplogic.com/public-apis/apis-apim.html)
+- [Documentation](https://docs.snaplogic.com/api-m/reference/generic-oauth2.html)
+- [Documentation](https://docs.snaplogic.com/monitor/observe-api-metrics.html)
+- [Postman Collection](collections/snaplogic-public-apis.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/snaplogic-public-apis.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### SnapLogic Snap Development SDK
+
+The SnapLogic Snap Development SDK provides a Java-based framework for building custom Snaps for the SnapLogic Intelligent Integration Platform. Snaps are streaming data processors that consume and produce Binary or Document data through input and output views. The SDK supports property configuration, expression language, binary and document data handling, input schema validation, error view handling, and unit testing.
+
+- **Human URL:** [https://developer.snaplogic.com/](https://developer.snaplogic.com/)
+
+#### Tags
+
+- Development
+- Integration
+- SDK
+
+#### Properties
+
+- [Documentation](https://developer.snaplogic.com/)
+- [GitHub Organization](https://github.com/SnapLogic/developer.snaplogic.com)
+- [Postman Collection](collections/snaplogic-public-apis.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/snaplogic-public-apis.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### SnapLogic
+
+Our AI-powered, all-in-one generative integration platform unifies your data and streamlines workflows to transform your business.
+
+- **Human URL:** [ https://www.snaplogic.com/]( https://www.snaplogic.com/)
+
+#### Properties
+
+- [Documentation]( https://www.snaplogic.com/)
+- [Postman Collection](collections/snaplogic-public-apis.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/snaplogic-public-apis.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+## Common Properties
+
+- [Documentation](https://docs-snaplogic.atlassian.net/wiki/spaces/SD/overview)
+- [LinkedIn](https://www.linkedin.com/company/snaplogic/)
+- [Website](https://www.snaplogic.com/)
+- [Integrations](https://www.snaplogic.com/products/snaps)
+- [Use Cases](https://www.snaplogic.com/use-cases)
+- [Request Demo](https://www.snaplogic.com/request-demo)
+- [Partners](https://www.snaplogic.com/partners)
+- [Customers](https://www.snaplogic.com/customers)
 - [Blog](https://www.snaplogic.com/blog)
+- [e Books](https://www.snaplogic.com/resources?_resource_type=ebook)
+- [Podcast](https://www.snaplogic.com/resources/podcasts)
+- [Webinars](https://www.snaplogic.com/resources/events)
+- [Training](https://www.snaplogic.com/resources/events/customer-workshops)
+- [Login](https://cdn.elastic.snaplogic.com/sl/login.html?referrer=https://www.snaplogic.com/)
+- [Request Demo](https://www.snaplogic.com/request-demo)
+- [Pricing](https://www.snaplogic.com/pricing)
+- [Security](https://www.snaplogic.com/security-standards)
+- [Glossary](https://www.snaplogic.com/glossary)
+- [Support](https://www.snaplogic.com/getting-help)
+- [Privacy Policy](https://www.snaplogic.com/privacy-policy)
+- [Terms of Service](https://www.snaplogic.com/terms-of-use)
+- [Documentation](https://docs.snaplogic.com/public-apis/public-apis-about.html)
+- [Documentation](https://docs.snaplogic.com/)
+- [Forum](https://community.snaplogic.com)
+- [Getting Started](https://community.snaplogic.com/t5/getting-started/bd-p/getting_started)
+- [Changelog](https://docs.snaplogic.com/introduction/release-process.html)
 - [Training](https://learn.snaplogic.com/)
+- [Certification](https://www.snaplogic.com/resources/snaplogic-academy)
+- [Documentation](https://developer.snaplogic.com/)
+- [GitHub Organization](https://github.com/SnapLogic)
+- [About](https://www.snaplogic.com/company)
+- [Careers](https://www.snaplogic.com/company/careers)
+- [News](https://www.snaplogic.com/company/newsroom)
+- [Press Releases](https://www.snaplogic.com/company/newsroom/press-releases)
+- [Contact](https://www.snaplogic.com/contact-us)
+- [X (Twitter)](https://x.com/SnapLogic)
+- [A P I Management](https://www.snaplogic.com/products/api-management-development)
+- [Documentation](https://docs.snaplogic.com/manager/view-pipeline-apis.html)
+- [Documentation](https://docs.snaplogic.com/cicd/git-integration/git-integration-about.html)
+- [Documentation](https://docs.snaplogic.com/monitor/observe-api-metrics.html)
 
-## Artifacts
+## Maintainers
 
-### OpenAPI
-- [snaplogic-public-apis-openapi.yml](openapi/snaplogic-public-apis-openapi.yml) — SnapLogic Public APIs (Runtime, Asset Management, Projects, Users, Tasks)
-
-### Rules
-- [snaplogic-rules.yml](rules/snaplogic-rules.yml) — Spectral ruleset enforcing SnapLogic API conventions (camelCase operationIds, JWT auth, server org variables)
-
-### Capabilities
-- [pipeline-operations.yaml](capabilities/pipeline-operations.yaml) — Unified workflow for SnapLogic pipeline monitoring, control, and asset management
-
-#### Shared Definitions
-- [capabilities/shared/public-apis.yaml](capabilities/shared/public-apis.yaml) — SnapLogic Public APIs shared capability definition
-
-### JSON Schema
-- [snaplogic-pipeline-execution-schema.json](json-schema/snaplogic-pipeline-execution-schema.json) — Schema for SnapLogic pipeline execution objects
-
-### JSON Structure
-- [snaplogic-platform-structure.json](json-structure/snaplogic-platform-structure.json) — Hierarchical structure of SnapLogic organizations, project spaces, projects, pipelines, and tasks
-
-### JSON-LD
-- [snaplogic-context.jsonld](json-ld/snaplogic-context.jsonld) — JSON-LD context for SnapLogic integration platform linked data semantics
-
-### Examples
-- [snaplogic-list-pipeline-executions-example.json](examples/snaplogic-list-pipeline-executions-example.json) — List failed pipeline executions via the Runtime API
-
-### Vocabulary
-- [snaplogic-vocabulary.yml](vocabulary/snaplogic-vocabulary.yml) — Domain vocabulary covering Snaps, Snaplex, pipelines, tasks, and generative integration concepts
+**FN:** Kin Lane
+**Email:** kin@apievangelist.com
