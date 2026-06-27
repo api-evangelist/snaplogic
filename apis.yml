@@ -276,7 +276,7 @@ common:
     type: Documentation
   - name: SnapLogic Community
     url: https://community.snaplogic.com
-    type: Forum
+    type: Forums
   - name: SnapLogic Getting Started
     url: https://community.snaplogic.com/t5/getting-started/bd-p/getting_started
     type: GettingStarted
