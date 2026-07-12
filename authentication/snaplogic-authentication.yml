@@ -1,0 +1,20 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/snaplogic-public-apis-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  description: JWT token obtained from the SnapLogic authentication endpoint
+  sources:
+  - openapi/snaplogic-public-apis-openapi.yml
+- name: basicAuth
+  type: http
+  scheme: basic
+  description: Basic authentication with SnapLogic username and password
+  sources:
+  - openapi/snaplogic-public-apis-openapi.yml
