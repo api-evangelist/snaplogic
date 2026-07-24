@@ -1,0 +1,113 @@
+openapi: 3.1.0
+info:
+  title: SnapLogic Public APIs Asset Management Users and Groups API
+  description: The SnapLogic Public APIs provide programmatic management for SnapLogic integration environments and project assets. The APIs cover activity tracking, asset management, asset catalog and lineage, log retrieval, runtime and pipeline execution control, task management, project and Git operations, Snaplex infrastructure management, Snap statistics, API Management lifecycle, and user and group administration. The platform authenticates API calls with basic authentication and JSON Web Token (JWT) over HTTPS.
+  version: '1.0'
+  contact:
+    name: SnapLogic Support
+    url: https://docs.snaplogic.com/public-apis/public-apis-about.html
+  termsOfService: https://www.snaplogic.com/terms-of-use
+servers:
+- url: https://{org}.snaplogic.com/api/1
+  description: SnapLogic API Server
+  variables:
+    org:
+      description: Your SnapLogic organization name
+      default: elastic
+security:
+- bearerAuth: []
+- basicAuth: []
+tags:
+- name: Users and Groups
+  description: Manage user accounts, groups, and membership for SnapLogic organizations.
+paths:
+  /assetapi/user-settings:
+    get:
+      operationId: getUserSettings
+      summary: Get User Settings
+      description: Retrieve app access information and settings for the current user.
+      tags:
+      - Users and Groups
+      responses:
+        '200':
+          description: Successful retrieval of user settings
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserSettings'
+        '401':
+          description: Unauthorized
+  /assetapi/user-app-access:
+    post:
+      operationId: updateUserAppAccess
+      summary: Update User App Access
+      description: Grant or revoke app access for a user within the SnapLogic organization.
+      tags:
+      - Users and Groups
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserAppAccessRequest'
+      responses:
+        '200':
+          description: App access updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    UserAppAccessRequest:
+      type: object
+      required:
+      - username
+      - action
+      properties:
+        username:
+          type: string
+          description: Username to update access for
+        action:
+          type: string
+          enum:
+          - grant
+          - revoke
+          description: Whether to grant or revoke access
+    SuccessResponse:
+      type: object
+      properties:
+        http_status_code:
+          type: integer
+          description: HTTP status code of the response
+        response_map:
+          type: object
+          description: Additional response data
+    UserSettings:
+      type: object
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+        app_access:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT token obtained from the SnapLogic authentication endpoint
+    basicAuth:
+      type: http
+      scheme: basic
+      description: Basic authentication with SnapLogic username and password
+externalDocs:
+  description: SnapLogic Public APIs Documentation
+  url: https://docs.snaplogic.com/public-apis/public-apis-about.html

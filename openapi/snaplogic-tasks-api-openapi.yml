@@ -1,0 +1,81 @@
+openapi: 3.1.0
+info:
+  title: SnapLogic Public APIs Asset Management Tasks API
+  description: The SnapLogic Public APIs provide programmatic management for SnapLogic integration environments and project assets. The APIs cover activity tracking, asset management, asset catalog and lineage, log retrieval, runtime and pipeline execution control, task management, project and Git operations, Snaplex infrastructure management, Snap statistics, API Management lifecycle, and user and group administration. The platform authenticates API calls with basic authentication and JSON Web Token (JWT) over HTTPS.
+  version: '1.0'
+  contact:
+    name: SnapLogic Support
+    url: https://docs.snaplogic.com/public-apis/public-apis-about.html
+  termsOfService: https://www.snaplogic.com/terms-of-use
+servers:
+- url: https://{org}.snaplogic.com/api/1
+  description: SnapLogic API Server
+  variables:
+    org:
+      description: Your SnapLogic organization name
+      default: elastic
+security:
+- bearerAuth: []
+- basicAuth: []
+tags:
+- name: Tasks
+  description: Enable, disable, and manage task configuration for triggered and scheduled pipeline tasks.
+paths:
+  /assetapi/update-owner:
+    post:
+      operationId: updateTaskOwner
+      summary: Update Task Owner
+      description: Update the owner of a task within the SnapLogic organization.
+      tags:
+      - Tasks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateOwnerRequest'
+      responses:
+        '200':
+          description: Owner updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    UpdateOwnerRequest:
+      type: object
+      required:
+      - path
+      - new_owner
+      properties:
+        path:
+          type: string
+          description: Path to the task to update ownership
+        new_owner:
+          type: string
+          description: Username of the new owner
+    SuccessResponse:
+      type: object
+      properties:
+        http_status_code:
+          type: integer
+          description: HTTP status code of the response
+        response_map:
+          type: object
+          description: Additional response data
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT token obtained from the SnapLogic authentication endpoint
+    basicAuth:
+      type: http
+      scheme: basic
+      description: Basic authentication with SnapLogic username and password
+externalDocs:
+  description: SnapLogic Public APIs Documentation
+  url: https://docs.snaplogic.com/public-apis/public-apis-about.html

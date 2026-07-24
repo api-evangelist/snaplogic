@@ -1,0 +1,242 @@
+openapi: 3.1.0
+info:
+  title: SnapLogic Public APIs Asset Management API
+  description: The SnapLogic Public APIs provide programmatic management for SnapLogic integration environments and project assets. The APIs cover activity tracking, asset management, asset catalog and lineage, log retrieval, runtime and pipeline execution control, task management, project and Git operations, Snaplex infrastructure management, Snap statistics, API Management lifecycle, and user and group administration. The platform authenticates API calls with basic authentication and JSON Web Token (JWT) over HTTPS.
+  version: '1.0'
+  contact:
+    name: SnapLogic Support
+    url: https://docs.snaplogic.com/public-apis/public-apis-about.html
+  termsOfService: https://www.snaplogic.com/terms-of-use
+servers:
+- url: https://{org}.snaplogic.com/api/1
+  description: SnapLogic API Server
+  variables:
+    org:
+      description: Your SnapLogic organization name
+      default: elastic
+security:
+- bearerAuth: []
+- basicAuth: []
+tags:
+- name: Asset Management
+  description: Control project access, permissions, and asset management including project creation, renaming, deletion, and ACL management.
+paths:
+  /assetapi/acl/{path}:
+    get:
+      operationId: getAssetPrivileges
+      summary: Get Asset Privileges
+      description: Retrieve the privileges of the current user for the specified project or space path.
+      tags:
+      - Asset Management
+      parameters:
+      - $ref: '#/components/parameters/assetPath'
+      responses:
+        '200':
+          description: Successful retrieval of privileges
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AclResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Asset not found
+    post:
+      operationId: grantAssetAccess
+      summary: Grant Asset Access
+      description: Grant access to a project or project space to a user or group.
+      tags:
+      - Asset Management
+      parameters:
+      - $ref: '#/components/parameters/assetPath'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AclRequest'
+      responses:
+        '200':
+          description: Access granted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+    delete:
+      operationId: revokeAssetAccess
+      summary: Revoke Asset Access
+      description: Revoke all project access from a user or group for the specified path.
+      tags:
+      - Asset Management
+      parameters:
+      - $ref: '#/components/parameters/assetPath'
+      responses:
+        '200':
+          description: Access revoked successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '401':
+          description: Unauthorized
+  /assetapi/project/{path}:
+    post:
+      operationId: createProject
+      summary: Create Project
+      description: Create a new project or project space at the specified path within the SnapLogic organization.
+      tags:
+      - Asset Management
+      parameters:
+      - $ref: '#/components/parameters/assetPath'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectRequest'
+      responses:
+        '200':
+          description: Project created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+    put:
+      operationId: renameProject
+      summary: Rename Project
+      description: Rename a project or project space at the specified path.
+      tags:
+      - Asset Management
+      parameters:
+      - $ref: '#/components/parameters/assetPath'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectRenameRequest'
+      responses:
+        '200':
+          description: Project renamed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '401':
+          description: Unauthorized
+    delete:
+      operationId: deleteProject
+      summary: Delete Project
+      description: Delete a project or project space at the specified path.
+      tags:
+      - Asset Management
+      parameters:
+      - $ref: '#/components/parameters/assetPath'
+      responses:
+        '200':
+          description: Project deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Project not found
+components:
+  parameters:
+    assetPath:
+      name: path
+      in: path
+      required: true
+      description: The path to the asset within the SnapLogic project hierarchy
+      schema:
+        type: string
+  schemas:
+    ProjectRequest:
+      type: object
+      required:
+      - path
+      properties:
+        path:
+          type: string
+          description: Path for the new project or project space
+        description:
+          type: string
+          description: Optional description for the project
+    SuccessResponse:
+      type: object
+      properties:
+        http_status_code:
+          type: integer
+          description: HTTP status code of the response
+        response_map:
+          type: object
+          description: Additional response data
+    AclResponse:
+      type: object
+      properties:
+        http_status_code:
+          type: integer
+        response_map:
+          type: object
+          properties:
+            permissions:
+              type: array
+              items:
+                type: string
+                enum:
+                - read
+                - write
+                - execute
+                - admin
+    ProjectRenameRequest:
+      type: object
+      required:
+      - new_name
+      properties:
+        new_name:
+          type: string
+          description: New name for the project
+    AclRequest:
+      type: object
+      required:
+      - perms
+      - users
+      properties:
+        perms:
+          type: array
+          items:
+            type: string
+            enum:
+            - read
+            - write
+            - execute
+            - admin
+          description: Permissions to grant
+        users:
+          type: array
+          items:
+            type: string
+          description: Usernames or group names to grant access to
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT token obtained from the SnapLogic authentication endpoint
+    basicAuth:
+      type: http
+      scheme: basic
+      description: Basic authentication with SnapLogic username and password
+externalDocs:
+  description: SnapLogic Public APIs Documentation
+  url: https://docs.snaplogic.com/public-apis/public-apis-about.html
