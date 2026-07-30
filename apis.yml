@@ -1,85 +1,151 @@
 aid: snaplogic
 url: https://raw.githubusercontent.com/api-evangelist/snaplogic/refs/heads/main/apis.yml
 apis:
-  - aid: snaplogic:snaplogic-public-apis
-    name: SnapLogic Public APIs
-    tags:
-      - Automation
-      - Integration
-      - iPaaS
-    humanURL: https://docs.snaplogic.com/public-apis/public-apis-about.html
-    properties:
-      - url: https://docs.snaplogic.com/public-apis/public-apis-about.html
-        type: Documentation
-      - url: >-
-          https://raw.githubusercontent.com/api-evangelist/snaplogic/refs/heads/main/openapi/snaplogic-public-apis-openapi.yml
-        type: OpenAPI
-      - url: https://docs.snaplogic.com/public-apis/apis-asset.html
-        type: Documentation
-      - url: https://docs.snaplogic.com/public-apis/apis-runtime.html
-        type: Documentation
-      - url: https://docs.snaplogic.com/public-apis/apis-project.html
-        type: Documentation
-      - url: https://docs.snaplogic.com/public-apis/apis-apim.html
-        type: Documentation
-      - url: https://docs.snaplogic.com/public-apis/apis-user-and-group.html
-        type: Documentation
-      - url: https://docs.snaplogic.com/public-apis/entra-id-configuration.html
-        type: Authentication
-    description: >-
-      SnapLogic Public APIs provide programmatic management for your environment and project assets. The APIs cover
-      activity tracking, asset management, asset catalog and lineage, log retrieval, runtime and pipeline execution
-      control, task management, project and Git operations, Snaplex infrastructure management, Snap statistics, API
-      Management lifecycle, and user and group administration. The platform authenticates API calls with basic
-      authentication and JSON Web Token (JWT) over HTTPS.
-  - aid: snaplogic:snaplogic-api-management
-    name: SnapLogic API Management
-    tags:
-      - API Gateway
-      - API Lifecycle
-      - API Management
-    humanURL: https://www.snaplogic.com/products/api-management-development
-    properties:
-      - url: https://www.snaplogic.com/products/api-management-development
-        type: Documentation
-      - url: https://docs.snaplogic.com/public-apis/apis-apim.html
-        type: Documentation
-      - url: https://docs.snaplogic.com/api-m/reference/generic-oauth2.html
-        type: Documentation
-      - url: https://docs.snaplogic.com/monitor/observe-api-metrics.html
-        type: Documentation
-    description: >-
-      SnapLogic API Management enables organizations to create, manage, secure, and monitor APIs throughout their
-      lifecycle. It supports exposing SnapLogic pipelines as APIs or creating APIs from an OpenAPI specification,
-      applying security policies, managing versions, publishing to a customizable developer portal, and monitoring API
-      metrics and performance across on-premises, hybrid, and cloud environments.
-  - aid: snaplogic:snaplogic-snap-development
-    name: SnapLogic Snap Development SDK
-    tags:
-      - Development
-      - Integration
-      - SDK
-    humanURL: https://developer.snaplogic.com/
-    properties:
-      - url: https://developer.snaplogic.com/
-        type: Documentation
-      - url: https://github.com/SnapLogic/developer.snaplogic.com
-        type: GitHubOrganization
-    description: >-
-      The SnapLogic Snap Development SDK provides a Java-based framework for building custom Snaps for the SnapLogic
-      Intelligent Integration Platform. Snaps are streaming data processors that consume and produce Binary or Document
-      data through input and output views. The SDK supports property configuration, expression language, binary and
-      document data handling, input schema validation, error view handling, and unit testing.
-  - aid: snaplogic:snaplogic
-    name: SnapLogic
-    tags: []
-    humanURL: ' https://www.snaplogic.com/'
-    properties:
-      - url: ' https://www.snaplogic.com/'
-        type: Documentation
-    description: >-
-      Our AI-powered, all-in-one generative integration platform unifies your data and streamlines workflows to
-      transform your business.
+- aid: snaplogic:snaplogic-api-management
+  name: SnapLogic API Management
+  tags:
+  - API Gateway
+  - API Lifecycle
+  - API Management
+  humanURL: https://www.snaplogic.com/products/api-management-development
+  properties:
+  - url: https://www.snaplogic.com/products/api-management-development
+    type: Documentation
+  - url: https://docs.snaplogic.com/public-apis/apis-apim.html
+    type: Documentation
+  - url: https://docs.snaplogic.com/api-m/reference/generic-oauth2.html
+    type: Documentation
+  - url: https://docs.snaplogic.com/monitor/observe-api-metrics.html
+    type: Documentation
+  description: >-
+    SnapLogic API Management enables organizations to create, manage, secure, and monitor APIs throughout
+    their lifecycle. It supports exposing SnapLogic pipelines as APIs or creating APIs from an OpenAPI
+    specification, applying security policies, managing versions, publishing to a customizable developer
+    portal, and monitoring API metrics and performance across on-premises, hybrid, and cloud environments.
+- aid: snaplogic:snaplogic-snap-development
+  name: SnapLogic Snap Development SDK
+  tags:
+  - Development
+  - Integration
+  - SDK
+  humanURL: https://developer.snaplogic.com/
+  properties:
+  - url: https://developer.snaplogic.com/
+    type: Documentation
+  - url: https://github.com/SnapLogic/developer.snaplogic.com
+    type: GitHubOrganization
+  description: >-
+    The SnapLogic Snap Development SDK provides a Java-based framework for building custom Snaps for the
+    SnapLogic Intelligent Integration Platform. Snaps are streaming data processors that consume and produce
+    Binary or Document data through input and output views. The SDK supports property configuration, expression
+    language, binary and document data handling, input schema validation, error view handling, and unit
+    testing.
+- aid: snaplogic:snaplogic
+  name: SnapLogic
+  tags: []
+  humanURL: ' https://www.snaplogic.com/'
+  properties:
+  - url: ' https://www.snaplogic.com/'
+    type: Documentation
+  description: >-
+    Our AI-powered, all-in-one generative integration platform unifies your data and streamlines workflows
+    to transform your business.
+- aid: snaplogic:snaplogic-asset-management-api
+  name: SnapLogic Asset Management API
+  description: >-
+    Control project access, permissions, and asset management including project creation, renaming, deletion,
+    and ACL management.
+  humanURL: https://docs.snaplogic.com/public-apis/public-apis-about.html
+  tags:
+  - Asset Management
+  properties:
+  - type: OpenAPI
+    url: openapi/snaplogic-asset-management-api-openapi.yml
+  - type: Documentation
+    url: https://docs.snaplogic.com/public-apis/public-apis-about.html
+  - type: Documentation
+    url: https://docs.snaplogic.com/public-apis/apis-asset.html
+  - type: Documentation
+    url: https://docs.snaplogic.com/public-apis/apis-runtime.html
+  - type: Documentation
+    url: https://docs.snaplogic.com/public-apis/apis-project.html
+  - type: Documentation
+    url: https://docs.snaplogic.com/public-apis/apis-apim.html
+  - type: Documentation
+    url: https://docs.snaplogic.com/public-apis/apis-user-and-group.html
+  - type: Authentication
+    url: https://docs.snaplogic.com/public-apis/entra-id-configuration.html
+- aid: snaplogic:snaplogic-runtime-api
+  name: SnapLogic Runtime API
+  description: >-
+    Monitor and control pipeline execution state, performance metrics, and concurrent execution statistics.
+  humanURL: https://docs.snaplogic.com/public-apis/public-apis-about.html
+  tags:
+  - Runtime
+  properties:
+  - type: OpenAPI
+    url: openapi/snaplogic-runtime-api-openapi.yml
+  - type: Documentation
+    url: https://docs.snaplogic.com/public-apis/public-apis-about.html
+  - type: Documentation
+    url: https://docs.snaplogic.com/public-apis/apis-asset.html
+  - type: Documentation
+    url: https://docs.snaplogic.com/public-apis/apis-runtime.html
+  - type: Documentation
+    url: https://docs.snaplogic.com/public-apis/apis-project.html
+  - type: Documentation
+    url: https://docs.snaplogic.com/public-apis/apis-apim.html
+  - type: Documentation
+    url: https://docs.snaplogic.com/public-apis/apis-user-and-group.html
+  - type: Authentication
+    url: https://docs.snaplogic.com/public-apis/entra-id-configuration.html
+- aid: snaplogic:snaplogic-tasks-api
+  name: SnapLogic Tasks API
+  description: >-
+    Enable, disable, and manage task configuration for triggered and scheduled pipeline tasks.
+  humanURL: https://docs.snaplogic.com/public-apis/public-apis-about.html
+  tags:
+  - Tasks
+  properties:
+  - type: OpenAPI
+    url: openapi/snaplogic-tasks-api-openapi.yml
+  - type: Documentation
+    url: https://docs.snaplogic.com/public-apis/public-apis-about.html
+  - type: Documentation
+    url: https://docs.snaplogic.com/public-apis/apis-asset.html
+  - type: Documentation
+    url: https://docs.snaplogic.com/public-apis/apis-runtime.html
+  - type: Documentation
+    url: https://docs.snaplogic.com/public-apis/apis-project.html
+  - type: Documentation
+    url: https://docs.snaplogic.com/public-apis/apis-apim.html
+  - type: Documentation
+    url: https://docs.snaplogic.com/public-apis/apis-user-and-group.html
+  - type: Authentication
+    url: https://docs.snaplogic.com/public-apis/entra-id-configuration.html
+- aid: snaplogic:snaplogic-users-and-groups-api
+  name: SnapLogic Users and Groups API
+  description: Manage user accounts, groups, and membership for SnapLogic organizations.
+  humanURL: https://docs.snaplogic.com/public-apis/public-apis-about.html
+  tags:
+  - Users and Groups
+  properties:
+  - type: OpenAPI
+    url: openapi/snaplogic-users-and-groups-api-openapi.yml
+  - type: Documentation
+    url: https://docs.snaplogic.com/public-apis/public-apis-about.html
+  - type: Documentation
+    url: https://docs.snaplogic.com/public-apis/apis-asset.html
+  - type: Documentation
+    url: https://docs.snaplogic.com/public-apis/apis-runtime.html
+  - type: Documentation
+    url: https://docs.snaplogic.com/public-apis/apis-project.html
+  - type: Documentation
+    url: https://docs.snaplogic.com/public-apis/apis-apim.html
+  - type: Documentation
+    url: https://docs.snaplogic.com/public-apis/apis-user-and-group.html
+  - type: Authentication
+    url: https://docs.snaplogic.com/public-apis/entra-id-configuration.html
 name: SnapLogic
 tags:
   - AI
@@ -90,9 +156,24 @@ tags:
   - iPaaS
   - Management
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: enterprise
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Enterprise · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/snaplogic.png
 access: 3rd-Party
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/snaplogic/overview
   - type: AgenticAccess
     url: agentic-access/snaplogic-agentic-access.yml
   - type: DomainSecurity
