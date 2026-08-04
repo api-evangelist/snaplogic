@@ -1,0 +1,1324 @@
+{
+  "info": {
+    "_postman_id": "da800861-dc58-45f4-a499-06774b753156",
+    "name": "SnapLogic Public APIs Asset Management Runtime API",
+    "description": "The SnapLogic Public APIs provide programmatic management for SnapLogic integration environments and project assets. The APIs cover activity tracking, asset management, asset catalog and lineage, log retrieval, runtime and pipeline execution control, task management, project and Git operations, Snaplex infrastructure management, Snap statistics, API Management lifecycle, and user and group administration. The platform authenticates API calls with basic authentication and JSON Web Token (JWT) over HTTPS.\n\nContact Support:\n Name: SnapLogic Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:57:14.000Z",
+    "updatedAt": "2026-07-28T02:57:15.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-da800861-dc58-45f4-a499-06774b753156"
+  },
+  "item": [
+    {
+      "name": "runtime",
+      "item": [
+        {
+          "name": "{org}",
+          "item": [
+            {
+              "name": "{ruuid}",
+              "item": [
+                {
+                  "name": "Get Pipeline Execution",
+                  "id": "89fe0272-09b2-488e-86ac-67413ec9296e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/runtime/:org/:ruuid",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "runtime",
+                        ":org",
+                        ":ruuid"
+                      ],
+                      "variable": [
+                        {
+                          "id": "50d8f151-0ea8-4827-83e3-028676059c10",
+                          "key": "org",
+                          "value": "<string>",
+                          "description": "(Required) The SnapLogic organization name"
+                        },
+                        {
+                          "id": "c5ba1171-6321-4fc1-86b1-a63d159ff6e3",
+                          "key": "ruuid",
+                          "value": "<string>",
+                          "description": "(Required) The runtime UUID of the pipeline execution"
+                        }
+                      ]
+                    },
+                    "description": "Retrieve information about a specific pipeline execution identified by its runtime UUID."
+                  },
+                  "response": [
+                    {
+                      "id": "fc0eb4f8-e1a2-42f2-91f5-c02c5dfd3452",
+                      "name": "Successful retrieval of pipeline execution",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/runtime/:org/:ruuid",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "runtime",
+                            ":org",
+                            ":ruuid"
+                          ],
+                          "variable": [
+                            {
+                              "key": "org"
+                            },
+                            {
+                              "key": "ruuid"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"ruuid\": \"<string>\",\n  \"status\": \"stopped\",\n  \"pipeline_path\": \"<string>\",\n  \"start_time\": \"<dateTime>\",\n  \"end_time\": \"<dateTime>\",\n  \"elapsed\": \"<number>\",\n  \"error_message\": \"<string>\",\n  \"user_name\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:57:15.000Z",
+                      "updatedAt": "2026-07-28T02:57:15.000Z",
+                      "uid": "35240-fc0eb4f8-e1a2-42f2-91f5-c02c5dfd3452"
+                    },
+                    {
+                      "id": "588223a9-2ff6-491c-bbf7-a647e5a8ed3c",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/runtime/:org/:ruuid",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "runtime",
+                            ":org",
+                            ":ruuid"
+                          ],
+                          "variable": [
+                            {
+                              "key": "org"
+                            },
+                            {
+                              "key": "ruuid"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:57:15.000Z",
+                      "updatedAt": "2026-07-28T02:57:15.000Z",
+                      "uid": "35240-588223a9-2ff6-491c-bbf7-a647e5a8ed3c"
+                    },
+                    {
+                      "id": "042ce5d3-2c47-4e52-a4be-c3fc6b37dec4",
+                      "name": "Execution not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/runtime/:org/:ruuid",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "runtime",
+                            ":org",
+                            ":ruuid"
+                          ],
+                          "variable": [
+                            {
+                              "key": "org"
+                            },
+                            {
+                              "key": "ruuid"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:57:15.000Z",
+                      "updatedAt": "2026-07-28T02:57:15.000Z",
+                      "uid": "35240-042ce5d3-2c47-4e52-a4be-c3fc6b37dec4"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:57:15.000Z",
+                  "updatedAt": "2026-07-28T02:57:15.000Z",
+                  "uid": "35240-89fe0272-09b2-488e-86ac-67413ec9296e"
+                }
+              ],
+              "id": "3a948220-28aa-4843-b801-548e44290b36",
+              "createdAt": "2026-07-28T02:57:15.000Z",
+              "updatedAt": "2026-07-28T02:57:15.000Z",
+              "uid": "35240-3a948220-28aa-4843-b801-548e44290b36"
+            },
+            {
+              "name": "List Pipeline Executions",
+              "id": "876d0a06-e8e9-4eab-9183-61b3f2c3cd11",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/runtime/:org?status=running&limit=25",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "runtime",
+                    ":org"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter executions by status (running, completed, failed, stopped)",
+                      "key": "status",
+                      "value": "running"
+                    },
+                    {
+                      "description": "Maximum number of results to return",
+                      "key": "limit",
+                      "value": "25"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "f394f68b-88ed-4f0f-a444-2ae0d57c9c95",
+                      "key": "org",
+                      "value": "<string>",
+                      "description": "(Required) The SnapLogic organization name"
+                    }
+                  ]
+                },
+                "description": "Retrieve information about pipeline executions matching a filter within the specified organization. Supports filtering by status, date range, and pipeline path."
+              },
+              "response": [
+                {
+                  "id": "18064daa-379c-4d89-8526-cd63de5c684f",
+                  "name": "Successful retrieval of pipeline executions",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/runtime/:org?status=running&limit=25",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "runtime",
+                        ":org"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter executions by status (running, completed, failed, stopped)",
+                          "key": "status",
+                          "value": "running"
+                        },
+                        {
+                          "description": "Maximum number of results to return",
+                          "key": "limit",
+                          "value": "25"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "org"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"total\": \"<integer>\",\n  \"offset\": \"<integer>\",\n  \"count\": \"<integer>\",\n  \"executions\": [\n    {\n      \"value\": \"reference #/schemas/RuntimeExecution not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/schemas/RuntimeExecution not found in the OpenAPI spec\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:57:15.000Z",
+                  "updatedAt": "2026-07-28T02:57:15.000Z",
+                  "uid": "35240-18064daa-379c-4d89-8526-cd63de5c684f"
+                },
+                {
+                  "id": "46bbdc7b-4e2c-4902-934e-469646457d7d",
+                  "name": "Unauthorized - invalid or expired token",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/runtime/:org?status=running&limit=25",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "runtime",
+                        ":org"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter executions by status (running, completed, failed, stopped)",
+                          "key": "status",
+                          "value": "running"
+                        },
+                        {
+                          "description": "Maximum number of results to return",
+                          "key": "limit",
+                          "value": "25"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "org"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:57:15.000Z",
+                  "updatedAt": "2026-07-28T02:57:15.000Z",
+                  "uid": "35240-46bbdc7b-4e2c-4902-934e-469646457d7d"
+                },
+                {
+                  "id": "486bf963-0673-47af-a9f5-aa272655ffed",
+                  "name": "Organization not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/runtime/:org?status=running&limit=25",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "runtime",
+                        ":org"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter executions by status (running, completed, failed, stopped)",
+                          "key": "status",
+                          "value": "running"
+                        },
+                        {
+                          "description": "Maximum number of results to return",
+                          "key": "limit",
+                          "value": "25"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "org"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:57:15.000Z",
+                  "updatedAt": "2026-07-28T02:57:15.000Z",
+                  "uid": "35240-486bf963-0673-47af-a9f5-aa272655ffed"
+                }
+              ],
+              "createdAt": "2026-07-28T02:57:15.000Z",
+              "updatedAt": "2026-07-28T02:57:15.000Z",
+              "uid": "35240-876d0a06-e8e9-4eab-9183-61b3f2c3cd11"
+            }
+          ],
+          "id": "4085318d-4567-4346-9566-31d78371bc70",
+          "createdAt": "2026-07-28T02:57:15.000Z",
+          "updatedAt": "2026-07-28T02:57:15.000Z",
+          "uid": "35240-4085318d-4567-4346-9566-31d78371bc70"
+        },
+        {
+          "name": "start",
+          "item": [
+            {
+              "name": "{org}",
+              "item": [
+                {
+                  "name": "{ruuid}",
+                  "item": [
+                    {
+                      "name": "Resume Pipeline Execution",
+                      "id": "2acc9f0b-aeda-4b6d-b4a4-43d4181035f1",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/runtime/start/:org/:ruuid",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "runtime",
+                            "start",
+                            ":org",
+                            ":ruuid"
+                          ],
+                          "variable": [
+                            {
+                              "id": "4457580a-ee95-4daf-9bf2-de374136031d",
+                              "key": "org",
+                              "value": "<string>",
+                              "description": "(Required) The SnapLogic organization name"
+                            },
+                            {
+                              "id": "b60d1123-bd1c-4262-8537-f0ea27e90020",
+                              "key": "ruuid",
+                              "value": "<string>",
+                              "description": "(Required) The runtime UUID of the pipeline execution"
+                            }
+                          ]
+                        },
+                        "description": "Resume a resumable pipeline execution that has been paused or suspended."
+                      },
+                      "response": [
+                        {
+                          "id": "40548d71-1d0c-442c-a9c4-b6b926c4a5fc",
+                          "name": "Pipeline resumed successfully",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/runtime/start/:org/:ruuid",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "runtime",
+                                "start",
+                                ":org",
+                                ":ruuid"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "org"
+                                },
+                                {
+                                  "key": "ruuid"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"http_status_code\": \"<integer>\",\n  \"response_map\": {}\n}",
+                          "createdAt": "2026-07-28T02:57:15.000Z",
+                          "updatedAt": "2026-07-28T02:57:15.000Z",
+                          "uid": "35240-40548d71-1d0c-442c-a9c4-b6b926c4a5fc"
+                        },
+                        {
+                          "id": "10268775-db58-416a-a9f6-309b0863c771",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/runtime/start/:org/:ruuid",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "runtime",
+                                "start",
+                                ":org",
+                                ":ruuid"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "org"
+                                },
+                                {
+                                  "key": "ruuid"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:57:15.000Z",
+                          "updatedAt": "2026-07-28T02:57:15.000Z",
+                          "uid": "35240-10268775-db58-416a-a9f6-309b0863c771"
+                        },
+                        {
+                          "id": "c005a1ef-ccdd-41a2-9ce6-6f48e4245b61",
+                          "name": "Execution not found",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/runtime/start/:org/:ruuid",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "runtime",
+                                "start",
+                                ":org",
+                                ":ruuid"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "org"
+                                },
+                                {
+                                  "key": "ruuid"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:57:15.000Z",
+                          "updatedAt": "2026-07-28T02:57:15.000Z",
+                          "uid": "35240-c005a1ef-ccdd-41a2-9ce6-6f48e4245b61"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:57:15.000Z",
+                      "updatedAt": "2026-07-28T02:57:15.000Z",
+                      "uid": "35240-2acc9f0b-aeda-4b6d-b4a4-43d4181035f1"
+                    }
+                  ],
+                  "id": "cec11a8e-2c99-400e-9032-68f321f36371",
+                  "createdAt": "2026-07-28T02:57:15.000Z",
+                  "updatedAt": "2026-07-28T02:57:15.000Z",
+                  "uid": "35240-cec11a8e-2c99-400e-9032-68f321f36371"
+                }
+              ],
+              "id": "8d46626d-a842-4279-8b1e-517b8aba872c",
+              "createdAt": "2026-07-28T02:57:15.000Z",
+              "updatedAt": "2026-07-28T02:57:15.000Z",
+              "uid": "35240-8d46626d-a842-4279-8b1e-517b8aba872c"
+            }
+          ],
+          "id": "9ca06681-1454-460d-bfd8-5a6a58e10752",
+          "createdAt": "2026-07-28T02:57:15.000Z",
+          "updatedAt": "2026-07-28T02:57:15.000Z",
+          "uid": "35240-9ca06681-1454-460d-bfd8-5a6a58e10752"
+        },
+        {
+          "name": "stop",
+          "item": [
+            {
+              "name": "{org}",
+              "item": [
+                {
+                  "name": "{ruuid}",
+                  "item": [
+                    {
+                      "name": "Stop Pipeline Execution",
+                      "id": "8e501bb1-c94e-4381-95db-4233621f12fa",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/runtime/stop/:org/:ruuid",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "runtime",
+                            "stop",
+                            ":org",
+                            ":ruuid"
+                          ],
+                          "variable": [
+                            {
+                              "id": "7b9a3e69-20f7-4c19-a55f-96222279a2db",
+                              "key": "org",
+                              "value": "<string>",
+                              "description": "(Required) The SnapLogic organization name"
+                            },
+                            {
+                              "id": "8af541ec-1f90-41fa-88b5-f2beecee1670",
+                              "key": "ruuid",
+                              "value": "<string>",
+                              "description": "(Required) The runtime UUID of the pipeline execution"
+                            }
+                          ]
+                        },
+                        "description": "Stop a running pipeline execution identified by its runtime UUID."
+                      },
+                      "response": [
+                        {
+                          "id": "b8107998-9475-4205-be90-ee1ff76b3f41",
+                          "name": "Pipeline stopped successfully",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/runtime/stop/:org/:ruuid",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "runtime",
+                                "stop",
+                                ":org",
+                                ":ruuid"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "org"
+                                },
+                                {
+                                  "key": "ruuid"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"http_status_code\": \"<integer>\",\n  \"response_map\": {}\n}",
+                          "createdAt": "2026-07-28T02:57:15.000Z",
+                          "updatedAt": "2026-07-28T02:57:15.000Z",
+                          "uid": "35240-b8107998-9475-4205-be90-ee1ff76b3f41"
+                        },
+                        {
+                          "id": "b6e3701e-7ce1-4708-a1b7-5568be7a7562",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/runtime/stop/:org/:ruuid",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "runtime",
+                                "stop",
+                                ":org",
+                                ":ruuid"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "org"
+                                },
+                                {
+                                  "key": "ruuid"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:57:15.000Z",
+                          "updatedAt": "2026-07-28T02:57:15.000Z",
+                          "uid": "35240-b6e3701e-7ce1-4708-a1b7-5568be7a7562"
+                        },
+                        {
+                          "id": "b9f98d56-6f3b-46af-8665-743a5a42fca1",
+                          "name": "Execution not found",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/runtime/stop/:org/:ruuid",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "runtime",
+                                "stop",
+                                ":org",
+                                ":ruuid"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "org"
+                                },
+                                {
+                                  "key": "ruuid"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:57:15.000Z",
+                          "updatedAt": "2026-07-28T02:57:15.000Z",
+                          "uid": "35240-b9f98d56-6f3b-46af-8665-743a5a42fca1"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:57:15.000Z",
+                      "updatedAt": "2026-07-28T02:57:15.000Z",
+                      "uid": "35240-8e501bb1-c94e-4381-95db-4233621f12fa"
+                    }
+                  ],
+                  "id": "5d067157-f615-4bad-8b0e-57c3e3956f68",
+                  "createdAt": "2026-07-28T02:57:15.000Z",
+                  "updatedAt": "2026-07-28T02:57:15.000Z",
+                  "uid": "35240-5d067157-f615-4bad-8b0e-57c3e3956f68"
+                }
+              ],
+              "id": "87458873-94a0-4a29-b3db-132d8c6538d6",
+              "createdAt": "2026-07-28T02:57:15.000Z",
+              "updatedAt": "2026-07-28T02:57:15.000Z",
+              "uid": "35240-87458873-94a0-4a29-b3db-132d8c6538d6"
+            }
+          ],
+          "id": "054fc354-7c2e-4c44-92d4-f9a26ba4a116",
+          "createdAt": "2026-07-28T02:57:15.000Z",
+          "updatedAt": "2026-07-28T02:57:15.000Z",
+          "uid": "35240-054fc354-7c2e-4c44-92d4-f9a26ba4a116"
+        },
+        {
+          "name": "apistats",
+          "item": [
+            {
+              "name": "{org}",
+              "item": [
+                {
+                  "name": "daily",
+                  "item": [
+                    {
+                      "name": "Get Daily Execution Metrics",
+                      "id": "275ded40-1855-4360-bf31-0dbe708aa680",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/runtime/apistats/:org/daily",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "runtime",
+                            "apistats",
+                            ":org",
+                            "daily"
+                          ],
+                          "variable": [
+                            {
+                              "id": "264d201a-ccd4-4c3c-bc0b-df8b9b0fc015",
+                              "key": "org",
+                              "value": "<string>",
+                              "description": "(Required) The SnapLogic organization name"
+                            }
+                          ]
+                        },
+                        "description": "Retrieve daily execution metrics for the organization, showing pipeline execution counts and durations by day."
+                      },
+                      "response": [
+                        {
+                          "id": "8a47a1e2-d993-43aa-bc29-135ce2e843f0",
+                          "name": "Successful retrieval of daily execution metrics",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/runtime/apistats/:org/daily",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "runtime",
+                                "apistats",
+                                ":org",
+                                "daily"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "org"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"date\": \"<date>\",\n  \"total_executions\": \"<integer>\",\n  \"successful_executions\": \"<integer>\",\n  \"failed_executions\": \"<integer>\",\n  \"avg_duration_seconds\": \"<number>\"\n}",
+                          "createdAt": "2026-07-28T02:57:15.000Z",
+                          "updatedAt": "2026-07-28T02:57:15.000Z",
+                          "uid": "35240-8a47a1e2-d993-43aa-bc29-135ce2e843f0"
+                        },
+                        {
+                          "id": "04a93129-d873-450e-a9b4-559d1ae731fa",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/runtime/apistats/:org/daily",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "runtime",
+                                "apistats",
+                                ":org",
+                                "daily"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "org"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:57:15.000Z",
+                          "updatedAt": "2026-07-28T02:57:15.000Z",
+                          "uid": "35240-04a93129-d873-450e-a9b4-559d1ae731fa"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:57:15.000Z",
+                      "updatedAt": "2026-07-28T02:57:15.000Z",
+                      "uid": "35240-275ded40-1855-4360-bf31-0dbe708aa680"
+                    }
+                  ],
+                  "id": "ffe0cb38-b49e-4bcf-8e46-ea7091c1e119",
+                  "createdAt": "2026-07-28T02:57:15.000Z",
+                  "updatedAt": "2026-07-28T02:57:15.000Z",
+                  "uid": "35240-ffe0cb38-b49e-4bcf-8e46-ea7091c1e119"
+                },
+                {
+                  "name": "concurrent",
+                  "item": [
+                    {
+                      "name": "Get Concurrent Execution Metrics",
+                      "id": "80db9cb2-8f53-43bb-ada4-5f8dcee1bdc0",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/runtime/apistats/:org/concurrent",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "runtime",
+                            "apistats",
+                            ":org",
+                            "concurrent"
+                          ],
+                          "variable": [
+                            {
+                              "id": "4709f16c-2a46-46a3-8916-7e6fac30d498",
+                              "key": "org",
+                              "value": "<string>",
+                              "description": "(Required) The SnapLogic organization name"
+                            }
+                          ]
+                        },
+                        "description": "Retrieve concurrent execution metrics showing the number of pipelines running simultaneously in the organization."
+                      },
+                      "response": [
+                        {
+                          "id": "4d748625-6ea6-44c5-8740-21df717d29d6",
+                          "name": "Successful retrieval of concurrent metrics",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/runtime/apistats/:org/concurrent",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "runtime",
+                                "apistats",
+                                ":org",
+                                "concurrent"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "org"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"current_concurrent\": \"<integer>\",\n  \"max_concurrent\": \"<integer>\",\n  \"peak_concurrent\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T02:57:15.000Z",
+                          "updatedAt": "2026-07-28T02:57:15.000Z",
+                          "uid": "35240-4d748625-6ea6-44c5-8740-21df717d29d6"
+                        },
+                        {
+                          "id": "d97d524f-9e2e-43db-ad0b-ce7cd7f564dc",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/runtime/apistats/:org/concurrent",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "runtime",
+                                "apistats",
+                                ":org",
+                                "concurrent"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "org"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:57:15.000Z",
+                          "updatedAt": "2026-07-28T02:57:15.000Z",
+                          "uid": "35240-d97d524f-9e2e-43db-ad0b-ce7cd7f564dc"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:57:15.000Z",
+                      "updatedAt": "2026-07-28T02:57:15.000Z",
+                      "uid": "35240-80db9cb2-8f53-43bb-ada4-5f8dcee1bdc0"
+                    }
+                  ],
+                  "id": "8f6219b9-a980-43a3-8b1e-f66922f848bc",
+                  "createdAt": "2026-07-28T02:57:15.000Z",
+                  "updatedAt": "2026-07-28T02:57:15.000Z",
+                  "uid": "35240-8f6219b9-a980-43a3-8b1e-f66922f848bc"
+                },
+                {
+                  "name": "Get Execution Metrics",
+                  "id": "62b5a22d-2d9e-46dc-a196-46129cb86270",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/runtime/apistats/:org",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "runtime",
+                        "apistats",
+                        ":org"
+                      ],
+                      "variable": [
+                        {
+                          "id": "a2d3188f-561c-4f87-b26b-75dd8f19ee63",
+                          "key": "org",
+                          "value": "<string>",
+                          "description": "(Required) The SnapLogic organization name"
+                        }
+                      ]
+                    },
+                    "description": "Retrieve both concurrent and daily execution metrics for the organization."
+                  },
+                  "response": [
+                    {
+                      "id": "95bd3b3e-da2d-49a9-9f1c-70538524c432",
+                      "name": "Successful retrieval of execution metrics",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/runtime/apistats/:org",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "runtime",
+                            "apistats",
+                            ":org"
+                          ],
+                          "variable": [
+                            {
+                              "key": "org"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"concurrent\": {\n    \"value\": \"reference #/schemas/ConcurrentMetrics not found in the OpenAPI spec\"\n  },\n  \"daily\": {\n    \"value\": \"reference #/schemas/DailyMetrics not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:57:15.000Z",
+                      "updatedAt": "2026-07-28T02:57:15.000Z",
+                      "uid": "35240-95bd3b3e-da2d-49a9-9f1c-70538524c432"
+                    },
+                    {
+                      "id": "462dd5a2-8ef0-430b-ab72-51837c2c0161",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/runtime/apistats/:org",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "runtime",
+                            "apistats",
+                            ":org"
+                          ],
+                          "variable": [
+                            {
+                              "key": "org"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:57:15.000Z",
+                      "updatedAt": "2026-07-28T02:57:15.000Z",
+                      "uid": "35240-462dd5a2-8ef0-430b-ab72-51837c2c0161"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:57:15.000Z",
+                  "updatedAt": "2026-07-28T02:57:15.000Z",
+                  "uid": "35240-62b5a22d-2d9e-46dc-a196-46129cb86270"
+                }
+              ],
+              "id": "611fb56f-307b-472d-ac93-3f74b89c7dd5",
+              "createdAt": "2026-07-28T02:57:15.000Z",
+              "updatedAt": "2026-07-28T02:57:15.000Z",
+              "uid": "35240-611fb56f-307b-472d-ac93-3f74b89c7dd5"
+            }
+          ],
+          "id": "35ea12ee-db29-4bb5-8bf8-7d7601826ed4",
+          "createdAt": "2026-07-28T02:57:15.000Z",
+          "updatedAt": "2026-07-28T02:57:15.000Z",
+          "uid": "35240-35ea12ee-db29-4bb5-8bf8-7d7601826ed4"
+        }
+      ],
+      "id": "e89c643c-b975-4641-b274-59442d3260be",
+      "createdAt": "2026-07-28T02:57:15.000Z",
+      "updatedAt": "2026-07-28T02:57:15.000Z",
+      "uid": "35240-e89c643c-b975-4641-b274-59442d3260be"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "org",
+      "value": "elastic"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{org}}.snaplogic.com/api/1"
+    }
+  ]
+}

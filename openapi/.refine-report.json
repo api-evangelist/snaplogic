@@ -1,0 +1,24 @@
+{
+  "provider": "snaplogic",
+  "sources": [
+    "snaplogic-asset-management-api-openapi.yml",
+    "snaplogic-runtime-api-openapi.yml",
+    "snaplogic-tasks-api-openapi.yml",
+    "snaplogic-users-and-groups-api-openapi.yml"
+  ],
+  "outputs": [
+    "snaplogic-asset-management-api-openapi.yml",
+    "snaplogic-runtime-api-openapi.yml",
+    "snaplogic-tasks-api-openapi.yml",
+    "snaplogic-users-and-groups-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [
+    "snaplogic-runtime-api-openapi.yml: dangling $ref: #/schemas/ConcurrentMetrics",
+    "snaplogic-runtime-api-openapi.yml: dangling $ref: #/schemas/DailyMetrics",
+    "snaplogic-runtime-api-openapi.yml: dangling $ref: #/schemas/RuntimeExecution"
+  ],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

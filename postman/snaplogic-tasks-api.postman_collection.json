@@ -1,0 +1,203 @@
+{
+  "info": {
+    "_postman_id": "253ad933-59c3-4ade-9f97-0327447c7568",
+    "name": "SnapLogic Public APIs Asset Management Tasks API",
+    "description": "The SnapLogic Public APIs provide programmatic management for SnapLogic integration environments and project assets. The APIs cover activity tracking, asset management, asset catalog and lineage, log retrieval, runtime and pipeline execution control, task management, project and Git operations, Snaplex infrastructure management, Snap statistics, API Management lifecycle, and user and group administration. The platform authenticates API calls with basic authentication and JSON Web Token (JWT) over HTTPS.\n\nContact Support:\n Name: SnapLogic Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:57:15.000Z",
+    "updatedAt": "2026-07-28T02:57:16.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-253ad933-59c3-4ade-9f97-0327447c7568"
+  },
+  "item": [
+    {
+      "name": "assetapi",
+      "item": [
+        {
+          "name": "update-owner",
+          "item": [
+            {
+              "name": "Update Task Owner",
+              "id": "d85174ed-110c-4d7f-85ac-bd7c70661c5e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"path\": \"<string>\",\n  \"new_owner\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/assetapi/update-owner",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "assetapi",
+                    "update-owner"
+                  ]
+                },
+                "description": "Update the owner of a task within the SnapLogic organization."
+              },
+              "response": [
+                {
+                  "id": "4f1b2a8c-b4b9-4802-9489-60e546030dae",
+                  "name": "Owner updated successfully",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"path\": \"<string>\",\n  \"new_owner\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/assetapi/update-owner",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "assetapi",
+                        "update-owner"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"http_status_code\": \"<integer>\",\n  \"response_map\": {}\n}",
+                  "createdAt": "2026-07-28T02:57:16.000Z",
+                  "updatedAt": "2026-07-28T02:57:16.000Z",
+                  "uid": "35240-4f1b2a8c-b4b9-4802-9489-60e546030dae"
+                },
+                {
+                  "id": "b69bdf1e-8bdd-47c2-a9f8-cdf21c41c316",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"path\": \"<string>\",\n  \"new_owner\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/assetapi/update-owner",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "assetapi",
+                        "update-owner"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:57:16.000Z",
+                  "updatedAt": "2026-07-28T02:57:16.000Z",
+                  "uid": "35240-b69bdf1e-8bdd-47c2-a9f8-cdf21c41c316"
+                }
+              ],
+              "createdAt": "2026-07-28T02:57:16.000Z",
+              "updatedAt": "2026-07-28T02:57:16.000Z",
+              "uid": "35240-d85174ed-110c-4d7f-85ac-bd7c70661c5e"
+            }
+          ],
+          "id": "d1acdcf5-257c-44b1-b0d7-d0f873cbd1af",
+          "createdAt": "2026-07-28T02:57:16.000Z",
+          "updatedAt": "2026-07-28T02:57:16.000Z",
+          "uid": "35240-d1acdcf5-257c-44b1-b0d7-d0f873cbd1af"
+        }
+      ],
+      "id": "bf1ddfc0-ac33-4106-b6b1-7754148aaa6e",
+      "createdAt": "2026-07-28T02:57:16.000Z",
+      "updatedAt": "2026-07-28T02:57:16.000Z",
+      "uid": "35240-bf1ddfc0-ac33-4106-b6b1-7754148aaa6e"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "org",
+      "value": "elastic"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{org}}.snaplogic.com/api/1"
+    }
+  ]
+}

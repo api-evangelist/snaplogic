@@ -1,0 +1,369 @@
+{
+  "info": {
+    "_postman_id": "58ae1928-3b0e-4bea-860b-b88794061b44",
+    "name": "SnapLogic Public APIs Asset Management Users and Groups API",
+    "description": "The SnapLogic Public APIs provide programmatic management for SnapLogic integration environments and project assets. The APIs cover activity tracking, asset management, asset catalog and lineage, log retrieval, runtime and pipeline execution control, task management, project and Git operations, Snaplex infrastructure management, Snap statistics, API Management lifecycle, and user and group administration. The platform authenticates API calls with basic authentication and JSON Web Token (JWT) over HTTPS.\n\nContact Support:\n Name: SnapLogic Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:57:16.000Z",
+    "updatedAt": "2026-07-28T02:57:16.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-58ae1928-3b0e-4bea-860b-b88794061b44"
+  },
+  "item": [
+    {
+      "name": "assetapi",
+      "item": [
+        {
+          "name": "user-settings",
+          "item": [
+            {
+              "name": "Get User Settings",
+              "id": "3d54e199-abe3-4acf-9e2f-d059b08c93a5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/assetapi/user-settings",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "assetapi",
+                    "user-settings"
+                  ]
+                },
+                "description": "Retrieve app access information and settings for the current user."
+              },
+              "response": [
+                {
+                  "id": "9487104c-182d-45cf-a85a-04afb55dc478",
+                  "name": "Successful retrieval of user settings",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/assetapi/user-settings",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "assetapi",
+                        "user-settings"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"username\": \"<string>\",\n  \"email\": \"<string>\",\n  \"app_access\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:57:17.000Z",
+                  "updatedAt": "2026-07-28T02:57:17.000Z",
+                  "uid": "35240-9487104c-182d-45cf-a85a-04afb55dc478"
+                },
+                {
+                  "id": "13a7bfc6-7864-4ad5-a432-470133cc4890",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/assetapi/user-settings",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "assetapi",
+                        "user-settings"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:57:17.000Z",
+                  "updatedAt": "2026-07-28T02:57:17.000Z",
+                  "uid": "35240-13a7bfc6-7864-4ad5-a432-470133cc4890"
+                }
+              ],
+              "createdAt": "2026-07-28T02:57:17.000Z",
+              "updatedAt": "2026-07-28T02:57:17.000Z",
+              "uid": "35240-3d54e199-abe3-4acf-9e2f-d059b08c93a5"
+            }
+          ],
+          "id": "16ec00d7-7546-40fc-b253-d1556d67b909",
+          "createdAt": "2026-07-28T02:57:17.000Z",
+          "updatedAt": "2026-07-28T02:57:17.000Z",
+          "uid": "35240-16ec00d7-7546-40fc-b253-d1556d67b909"
+        },
+        {
+          "name": "user-app-access",
+          "item": [
+            {
+              "name": "Update User App Access",
+              "id": "cd66ecda-0e58-41bb-9d77-3ed446fc2ac2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"<string>\",\n  \"action\": \"grant\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/assetapi/user-app-access",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "assetapi",
+                    "user-app-access"
+                  ]
+                },
+                "description": "Grant or revoke app access for a user within the SnapLogic organization."
+              },
+              "response": [
+                {
+                  "id": "e5a5b0bd-ea84-42bd-a215-584b58e83ec8",
+                  "name": "App access updated successfully",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"username\": \"<string>\",\n  \"action\": \"grant\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/assetapi/user-app-access",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "assetapi",
+                        "user-app-access"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"http_status_code\": \"<integer>\",\n  \"response_map\": {}\n}",
+                  "createdAt": "2026-07-28T02:57:17.000Z",
+                  "updatedAt": "2026-07-28T02:57:17.000Z",
+                  "uid": "35240-e5a5b0bd-ea84-42bd-a215-584b58e83ec8"
+                },
+                {
+                  "id": "3ec2a26d-3090-4a02-91a7-e0fc1b66e8d7",
+                  "name": "Bad request",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"username\": \"<string>\",\n  \"action\": \"grant\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/assetapi/user-app-access",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "assetapi",
+                        "user-app-access"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:57:17.000Z",
+                  "updatedAt": "2026-07-28T02:57:17.000Z",
+                  "uid": "35240-3ec2a26d-3090-4a02-91a7-e0fc1b66e8d7"
+                },
+                {
+                  "id": "e63d399a-6596-4874-97a4-e082c9470e6e",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"username\": \"<string>\",\n  \"action\": \"grant\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/assetapi/user-app-access",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "assetapi",
+                        "user-app-access"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:57:17.000Z",
+                  "updatedAt": "2026-07-28T02:57:17.000Z",
+                  "uid": "35240-e63d399a-6596-4874-97a4-e082c9470e6e"
+                }
+              ],
+              "createdAt": "2026-07-28T02:57:17.000Z",
+              "updatedAt": "2026-07-28T02:57:17.000Z",
+              "uid": "35240-cd66ecda-0e58-41bb-9d77-3ed446fc2ac2"
+            }
+          ],
+          "id": "135fbb49-c8f1-444e-9964-0907c2a31c67",
+          "createdAt": "2026-07-28T02:57:17.000Z",
+          "updatedAt": "2026-07-28T02:57:17.000Z",
+          "uid": "35240-135fbb49-c8f1-444e-9964-0907c2a31c67"
+        }
+      ],
+      "id": "e8f2f6ef-27fb-4095-ab7f-53643de512a8",
+      "createdAt": "2026-07-28T02:57:17.000Z",
+      "updatedAt": "2026-07-28T02:57:17.000Z",
+      "uid": "35240-e8f2f6ef-27fb-4095-ab7f-53643de512a8"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "org",
+      "value": "elastic"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{org}}.snaplogic.com/api/1"
+    }
+  ]
+}

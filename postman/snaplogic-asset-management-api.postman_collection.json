@@ -1,0 +1,1173 @@
+{
+  "info": {
+    "_postman_id": "d7525a78-b929-4fc6-b551-74fb5b180c34",
+    "name": "SnapLogic Public APIs Asset Management API",
+    "description": "The SnapLogic Public APIs provide programmatic management for SnapLogic integration environments and project assets. The APIs cover activity tracking, asset management, asset catalog and lineage, log retrieval, runtime and pipeline execution control, task management, project and Git operations, Snaplex infrastructure management, Snap statistics, API Management lifecycle, and user and group administration. The platform authenticates API calls with basic authentication and JSON Web Token (JWT) over HTTPS.\n\nContact Support:\n Name: SnapLogic Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:57:13.000Z",
+    "updatedAt": "2026-07-28T02:57:14.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d7525a78-b929-4fc6-b551-74fb5b180c34"
+  },
+  "item": [
+    {
+      "name": "assetapi",
+      "item": [
+        {
+          "name": "acl",
+          "item": [
+            {
+              "name": "{path}",
+              "item": [
+                {
+                  "name": "Get Asset Privileges",
+                  "id": "f481b70d-b32a-44bd-8b61-0fd93147b613",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/assetapi/acl/:path",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "assetapi",
+                        "acl",
+                        ":path"
+                      ],
+                      "variable": [
+                        {
+                          "id": "c5fa1b7c-ee26-4127-9065-35b7465c27bd",
+                          "key": "path",
+                          "value": "<string>",
+                          "description": "(Required) The path to the asset within the SnapLogic project hierarchy"
+                        }
+                      ]
+                    },
+                    "description": "Retrieve the privileges of the current user for the specified project or space path."
+                  },
+                  "response": [
+                    {
+                      "id": "dde93cdb-6be5-48fe-bdee-c58802649ee7",
+                      "name": "Successful retrieval of privileges",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/assetapi/acl/:path",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "assetapi",
+                            "acl",
+                            ":path"
+                          ],
+                          "variable": [
+                            {
+                              "key": "path"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"http_status_code\": \"<integer>\",\n  \"response_map\": {\n    \"permissions\": [\n      \"read\",\n      \"admin\"\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T02:57:14.000Z",
+                      "updatedAt": "2026-07-28T02:57:14.000Z",
+                      "uid": "35240-dde93cdb-6be5-48fe-bdee-c58802649ee7"
+                    },
+                    {
+                      "id": "db111794-6ee5-433e-836c-a958dd293ad8",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/assetapi/acl/:path",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "assetapi",
+                            "acl",
+                            ":path"
+                          ],
+                          "variable": [
+                            {
+                              "key": "path"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:57:14.000Z",
+                      "updatedAt": "2026-07-28T02:57:14.000Z",
+                      "uid": "35240-db111794-6ee5-433e-836c-a958dd293ad8"
+                    },
+                    {
+                      "id": "3e109f76-94cc-44dd-9cfc-2717a78db0b4",
+                      "name": "Asset not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/assetapi/acl/:path",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "assetapi",
+                            "acl",
+                            ":path"
+                          ],
+                          "variable": [
+                            {
+                              "key": "path"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:57:14.000Z",
+                      "updatedAt": "2026-07-28T02:57:14.000Z",
+                      "uid": "35240-3e109f76-94cc-44dd-9cfc-2717a78db0b4"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:57:14.000Z",
+                  "updatedAt": "2026-07-28T02:57:14.000Z",
+                  "uid": "35240-f481b70d-b32a-44bd-8b61-0fd93147b613"
+                },
+                {
+                  "name": "Grant Asset Access",
+                  "id": "3eee8fed-2130-460e-bfd1-6c086011e19d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"perms\": [\n    \"read\",\n    \"execute\"\n  ],\n  \"users\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/assetapi/acl/:path",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "assetapi",
+                        "acl",
+                        ":path"
+                      ],
+                      "variable": [
+                        {
+                          "id": "4abf80d5-af11-412d-8635-45eab22cbae7",
+                          "key": "path",
+                          "value": "<string>",
+                          "description": "(Required) The path to the asset within the SnapLogic project hierarchy"
+                        }
+                      ]
+                    },
+                    "description": "Grant access to a project or project space to a user or group."
+                  },
+                  "response": [
+                    {
+                      "id": "bcf35071-8cb6-4e53-8692-e84f36b4e286",
+                      "name": "Access granted successfully",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"perms\": [\n    \"read\",\n    \"execute\"\n  ],\n  \"users\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/assetapi/acl/:path",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "assetapi",
+                            "acl",
+                            ":path"
+                          ],
+                          "variable": [
+                            {
+                              "key": "path"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"http_status_code\": \"<integer>\",\n  \"response_map\": {}\n}",
+                      "createdAt": "2026-07-28T02:57:14.000Z",
+                      "updatedAt": "2026-07-28T02:57:14.000Z",
+                      "uid": "35240-bcf35071-8cb6-4e53-8692-e84f36b4e286"
+                    },
+                    {
+                      "id": "1b879980-13b8-4bed-9499-3712ad199f5c",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"perms\": [\n    \"read\",\n    \"execute\"\n  ],\n  \"users\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/assetapi/acl/:path",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "assetapi",
+                            "acl",
+                            ":path"
+                          ],
+                          "variable": [
+                            {
+                              "key": "path"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:57:14.000Z",
+                      "updatedAt": "2026-07-28T02:57:14.000Z",
+                      "uid": "35240-1b879980-13b8-4bed-9499-3712ad199f5c"
+                    },
+                    {
+                      "id": "33cca9d6-6b43-4187-9627-65a336e51f14",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"perms\": [\n    \"read\",\n    \"execute\"\n  ],\n  \"users\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/assetapi/acl/:path",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "assetapi",
+                            "acl",
+                            ":path"
+                          ],
+                          "variable": [
+                            {
+                              "key": "path"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:57:14.000Z",
+                      "updatedAt": "2026-07-28T02:57:14.000Z",
+                      "uid": "35240-33cca9d6-6b43-4187-9627-65a336e51f14"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:57:14.000Z",
+                  "updatedAt": "2026-07-28T02:57:14.000Z",
+                  "uid": "35240-3eee8fed-2130-460e-bfd1-6c086011e19d"
+                },
+                {
+                  "name": "Revoke Asset Access",
+                  "id": "6ed440fa-45bc-498c-b05f-481fe8cf85da",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/assetapi/acl/:path",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "assetapi",
+                        "acl",
+                        ":path"
+                      ],
+                      "variable": [
+                        {
+                          "id": "35f99856-27df-4eca-8115-284a4af31369",
+                          "key": "path",
+                          "value": "<string>",
+                          "description": "(Required) The path to the asset within the SnapLogic project hierarchy"
+                        }
+                      ]
+                    },
+                    "description": "Revoke all project access from a user or group for the specified path."
+                  },
+                  "response": [
+                    {
+                      "id": "b6d14867-a26b-46b6-a0be-6c7913a8eb3d",
+                      "name": "Access revoked successfully",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/assetapi/acl/:path",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "assetapi",
+                            "acl",
+                            ":path"
+                          ],
+                          "variable": [
+                            {
+                              "key": "path"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"http_status_code\": \"<integer>\",\n  \"response_map\": {}\n}",
+                      "createdAt": "2026-07-28T02:57:14.000Z",
+                      "updatedAt": "2026-07-28T02:57:14.000Z",
+                      "uid": "35240-b6d14867-a26b-46b6-a0be-6c7913a8eb3d"
+                    },
+                    {
+                      "id": "90f6e77d-a8d5-42da-b971-85ed55d590c7",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/assetapi/acl/:path",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "assetapi",
+                            "acl",
+                            ":path"
+                          ],
+                          "variable": [
+                            {
+                              "key": "path"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:57:14.000Z",
+                      "updatedAt": "2026-07-28T02:57:14.000Z",
+                      "uid": "35240-90f6e77d-a8d5-42da-b971-85ed55d590c7"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:57:14.000Z",
+                  "updatedAt": "2026-07-28T02:57:14.000Z",
+                  "uid": "35240-6ed440fa-45bc-498c-b05f-481fe8cf85da"
+                }
+              ],
+              "id": "28156fcc-3661-4050-8637-bf8705c50ab1",
+              "createdAt": "2026-07-28T02:57:14.000Z",
+              "updatedAt": "2026-07-28T02:57:14.000Z",
+              "uid": "35240-28156fcc-3661-4050-8637-bf8705c50ab1"
+            }
+          ],
+          "id": "20cbf2a3-fce8-48ae-b86b-00ca2ba53c6a",
+          "createdAt": "2026-07-28T02:57:14.000Z",
+          "updatedAt": "2026-07-28T02:57:14.000Z",
+          "uid": "35240-20cbf2a3-fce8-48ae-b86b-00ca2ba53c6a"
+        },
+        {
+          "name": "project",
+          "item": [
+            {
+              "name": "{path}",
+              "item": [
+                {
+                  "name": "Create Project",
+                  "id": "d557afbb-9bac-4f14-bf1d-12c711173ef9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"path\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/assetapi/project/:path",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "assetapi",
+                        "project",
+                        ":path"
+                      ],
+                      "variable": [
+                        {
+                          "id": "e65da868-5bbe-40f9-8f41-026501ac034a",
+                          "key": "path",
+                          "value": "<string>",
+                          "description": "(Required) The path to the asset within the SnapLogic project hierarchy"
+                        }
+                      ]
+                    },
+                    "description": "Create a new project or project space at the specified path within the SnapLogic organization."
+                  },
+                  "response": [
+                    {
+                      "id": "26d57b16-e764-4890-901e-3cbbaa250b00",
+                      "name": "Project created successfully",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"path\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/assetapi/project/:path",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "assetapi",
+                            "project",
+                            ":path"
+                          ],
+                          "variable": [
+                            {
+                              "key": "path"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"http_status_code\": \"<integer>\",\n  \"response_map\": {}\n}",
+                      "createdAt": "2026-07-28T02:57:14.000Z",
+                      "updatedAt": "2026-07-28T02:57:14.000Z",
+                      "uid": "35240-26d57b16-e764-4890-901e-3cbbaa250b00"
+                    },
+                    {
+                      "id": "7f66bf80-9854-4c6f-8602-dff97af22c59",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"path\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/assetapi/project/:path",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "assetapi",
+                            "project",
+                            ":path"
+                          ],
+                          "variable": [
+                            {
+                              "key": "path"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:57:14.000Z",
+                      "updatedAt": "2026-07-28T02:57:14.000Z",
+                      "uid": "35240-7f66bf80-9854-4c6f-8602-dff97af22c59"
+                    },
+                    {
+                      "id": "09936af3-b660-4637-8582-9e455ed120a6",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"path\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/assetapi/project/:path",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "assetapi",
+                            "project",
+                            ":path"
+                          ],
+                          "variable": [
+                            {
+                              "key": "path"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:57:14.000Z",
+                      "updatedAt": "2026-07-28T02:57:14.000Z",
+                      "uid": "35240-09936af3-b660-4637-8582-9e455ed120a6"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:57:14.000Z",
+                  "updatedAt": "2026-07-28T02:57:14.000Z",
+                  "uid": "35240-d557afbb-9bac-4f14-bf1d-12c711173ef9"
+                },
+                {
+                  "name": "Rename Project",
+                  "id": "8aef8764-1d7e-4d16-8997-25d2967e766b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"new_name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/assetapi/project/:path",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "assetapi",
+                        "project",
+                        ":path"
+                      ],
+                      "variable": [
+                        {
+                          "id": "9cd2631d-c30c-4fdf-bfee-130ef3241880",
+                          "key": "path",
+                          "value": "<string>",
+                          "description": "(Required) The path to the asset within the SnapLogic project hierarchy"
+                        }
+                      ]
+                    },
+                    "description": "Rename a project or project space at the specified path."
+                  },
+                  "response": [
+                    {
+                      "id": "20021cfa-d0cb-4102-8847-c42de4a30d33",
+                      "name": "Project renamed successfully",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"new_name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/assetapi/project/:path",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "assetapi",
+                            "project",
+                            ":path"
+                          ],
+                          "variable": [
+                            {
+                              "key": "path"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"http_status_code\": \"<integer>\",\n  \"response_map\": {}\n}",
+                      "createdAt": "2026-07-28T02:57:14.000Z",
+                      "updatedAt": "2026-07-28T02:57:14.000Z",
+                      "uid": "35240-20021cfa-d0cb-4102-8847-c42de4a30d33"
+                    },
+                    {
+                      "id": "347b1c66-8c66-4ff7-94c9-9a3288a3ac82",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"new_name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/assetapi/project/:path",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "assetapi",
+                            "project",
+                            ":path"
+                          ],
+                          "variable": [
+                            {
+                              "key": "path"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:57:14.000Z",
+                      "updatedAt": "2026-07-28T02:57:14.000Z",
+                      "uid": "35240-347b1c66-8c66-4ff7-94c9-9a3288a3ac82"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:57:14.000Z",
+                  "updatedAt": "2026-07-28T02:57:14.000Z",
+                  "uid": "35240-8aef8764-1d7e-4d16-8997-25d2967e766b"
+                },
+                {
+                  "name": "Delete Project",
+                  "id": "82cf6894-a20b-46b6-a0cc-7add658a8f62",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/assetapi/project/:path",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "assetapi",
+                        "project",
+                        ":path"
+                      ],
+                      "variable": [
+                        {
+                          "id": "bfab210b-ca34-4221-affe-e1494dee36d5",
+                          "key": "path",
+                          "value": "<string>",
+                          "description": "(Required) The path to the asset within the SnapLogic project hierarchy"
+                        }
+                      ]
+                    },
+                    "description": "Delete a project or project space at the specified path."
+                  },
+                  "response": [
+                    {
+                      "id": "52ce13ff-4fa9-4fc9-b910-f2325eac0be3",
+                      "name": "Project deleted successfully",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/assetapi/project/:path",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "assetapi",
+                            "project",
+                            ":path"
+                          ],
+                          "variable": [
+                            {
+                              "key": "path"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"http_status_code\": \"<integer>\",\n  \"response_map\": {}\n}",
+                      "createdAt": "2026-07-28T02:57:14.000Z",
+                      "updatedAt": "2026-07-28T02:57:14.000Z",
+                      "uid": "35240-52ce13ff-4fa9-4fc9-b910-f2325eac0be3"
+                    },
+                    {
+                      "id": "b732103a-bad2-40fc-bbcd-4bb40ea88c94",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/assetapi/project/:path",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "assetapi",
+                            "project",
+                            ":path"
+                          ],
+                          "variable": [
+                            {
+                              "key": "path"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:57:14.000Z",
+                      "updatedAt": "2026-07-28T02:57:14.000Z",
+                      "uid": "35240-b732103a-bad2-40fc-bbcd-4bb40ea88c94"
+                    },
+                    {
+                      "id": "be73ab5d-78b9-4eb8-a1ef-c5cb3c0eb101",
+                      "name": "Project not found",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/assetapi/project/:path",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "assetapi",
+                            "project",
+                            ":path"
+                          ],
+                          "variable": [
+                            {
+                              "key": "path"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:57:14.000Z",
+                      "updatedAt": "2026-07-28T02:57:14.000Z",
+                      "uid": "35240-be73ab5d-78b9-4eb8-a1ef-c5cb3c0eb101"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:57:14.000Z",
+                  "updatedAt": "2026-07-28T02:57:14.000Z",
+                  "uid": "35240-82cf6894-a20b-46b6-a0cc-7add658a8f62"
+                }
+              ],
+              "id": "259ed8da-33b7-4672-ac85-1521504a14fe",
+              "createdAt": "2026-07-28T02:57:14.000Z",
+              "updatedAt": "2026-07-28T02:57:14.000Z",
+              "uid": "35240-259ed8da-33b7-4672-ac85-1521504a14fe"
+            }
+          ],
+          "id": "ae95e882-089e-4518-8333-6bd5aafac52d",
+          "createdAt": "2026-07-28T02:57:14.000Z",
+          "updatedAt": "2026-07-28T02:57:14.000Z",
+          "uid": "35240-ae95e882-089e-4518-8333-6bd5aafac52d"
+        }
+      ],
+      "id": "4b630238-abdc-464b-a92c-d52acab09238",
+      "createdAt": "2026-07-28T02:57:14.000Z",
+      "updatedAt": "2026-07-28T02:57:14.000Z",
+      "uid": "35240-4b630238-abdc-464b-a92c-d52acab09238"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "org",
+      "value": "elastic"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{org}}.snaplogic.com/api/1"
+    }
+  ]
+}
