@@ -1,0 +1,187 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SnapLogic Public APIs Asset Management Runtime API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Runtime",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Pipeline Executions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{org}.snaplogic.com/api/1/runtime/:org",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "The SnapLogic organization name"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter executions by status (running, completed, failed, stopped)"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              }
+            ]
+          },
+          "docs": "Retrieve information about pipeline executions matching a filter within the specified organization. Supports filtering by status, date range, and pipeline path."
+        },
+        {
+          "info": {
+            "name": "Get Pipeline Execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{org}.snaplogic.com/api/1/runtime/:org/:ruuid",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "The SnapLogic organization name"
+              },
+              {
+                "name": "ruuid",
+                "value": "",
+                "type": "path",
+                "description": "The runtime UUID of the pipeline execution"
+              }
+            ]
+          },
+          "docs": "Retrieve information about a specific pipeline execution identified by its runtime UUID."
+        },
+        {
+          "info": {
+            "name": "Resume Pipeline Execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{org}.snaplogic.com/api/1/runtime/start/:org/:ruuid",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "The SnapLogic organization name"
+              },
+              {
+                "name": "ruuid",
+                "value": "",
+                "type": "path",
+                "description": "The runtime UUID of the pipeline execution"
+              }
+            ]
+          },
+          "docs": "Resume a resumable pipeline execution that has been paused or suspended."
+        },
+        {
+          "info": {
+            "name": "Stop Pipeline Execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{org}.snaplogic.com/api/1/runtime/stop/:org/:ruuid",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "The SnapLogic organization name"
+              },
+              {
+                "name": "ruuid",
+                "value": "",
+                "type": "path",
+                "description": "The runtime UUID of the pipeline execution"
+              }
+            ]
+          },
+          "docs": "Stop a running pipeline execution identified by its runtime UUID."
+        },
+        {
+          "info": {
+            "name": "Get Execution Metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{org}.snaplogic.com/api/1/runtime/apistats/:org",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "The SnapLogic organization name"
+              }
+            ]
+          },
+          "docs": "Retrieve both concurrent and daily execution metrics for the organization."
+        },
+        {
+          "info": {
+            "name": "Get Daily Execution Metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{org}.snaplogic.com/api/1/runtime/apistats/:org/daily",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "The SnapLogic organization name"
+              }
+            ]
+          },
+          "docs": "Retrieve daily execution metrics for the organization, showing pipeline execution counts and durations by day."
+        },
+        {
+          "info": {
+            "name": "Get Concurrent Execution Metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{org}.snaplogic.com/api/1/runtime/apistats/:org/concurrent",
+            "params": [
+              {
+                "name": "org",
+                "value": "",
+                "type": "path",
+                "description": "The SnapLogic organization name"
+              }
+            ]
+          },
+          "docs": "Retrieve concurrent execution metrics showing the number of pipelines running simultaneously in the organization."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

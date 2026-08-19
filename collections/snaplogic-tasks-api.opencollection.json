@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SnapLogic Public APIs Asset Management Tasks API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tasks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Update Task Owner",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{org}.snaplogic.com/api/1/assetapi/update-owner",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the owner of a task within the SnapLogic organization."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

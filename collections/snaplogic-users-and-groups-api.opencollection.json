@@ -1,0 +1,50 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SnapLogic Public APIs Asset Management Users and Groups API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users and Groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get User Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{org}.snaplogic.com/api/1/assetapi/user-settings"
+          },
+          "docs": "Retrieve app access information and settings for the current user."
+        },
+        {
+          "info": {
+            "name": "Update User App Access",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{org}.snaplogic.com/api/1/assetapi/user-app-access",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Grant or revoke app access for a user within the SnapLogic organization."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

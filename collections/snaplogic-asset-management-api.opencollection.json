@@ -1,0 +1,150 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SnapLogic Public APIs Asset Management API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Asset Management",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Asset Privileges",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{org}.snaplogic.com/api/1/assetapi/acl/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "The path to the asset within the SnapLogic project hierarchy"
+              }
+            ]
+          },
+          "docs": "Retrieve the privileges of the current user for the specified project or space path."
+        },
+        {
+          "info": {
+            "name": "Grant Asset Access",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{org}.snaplogic.com/api/1/assetapi/acl/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "The path to the asset within the SnapLogic project hierarchy"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Grant access to a project or project space to a user or group."
+        },
+        {
+          "info": {
+            "name": "Revoke Asset Access",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{org}.snaplogic.com/api/1/assetapi/acl/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "The path to the asset within the SnapLogic project hierarchy"
+              }
+            ]
+          },
+          "docs": "Revoke all project access from a user or group for the specified path."
+        },
+        {
+          "info": {
+            "name": "Create Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{org}.snaplogic.com/api/1/assetapi/project/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "The path to the asset within the SnapLogic project hierarchy"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new project or project space at the specified path within the SnapLogic organization."
+        },
+        {
+          "info": {
+            "name": "Rename Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{org}.snaplogic.com/api/1/assetapi/project/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "The path to the asset within the SnapLogic project hierarchy"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Rename a project or project space at the specified path."
+        },
+        {
+          "info": {
+            "name": "Delete Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{org}.snaplogic.com/api/1/assetapi/project/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "The path to the asset within the SnapLogic project hierarchy"
+              }
+            ]
+          },
+          "docs": "Delete a project or project space at the specified path."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
