@@ -1,7 +1,7 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: SnapLogic Public APIs Asset Management Users and Groups API
-  description: The SnapLogic Public APIs provide programmatic management for SnapLogic integration environments and project assets. The APIs cover activity tracking, asset management, asset catalog and lineage, log retrieval, runtime and pipeline execution control, task management, project and Git operations, Snaplex infrastructure management, Snap statistics, API Management lifecycle, and user and group administration. The platform authenticates API calls with basic authentication and JSON Web Token (JWT) over HTTPS.
+  title: SnapLogic Public Users and Groups API
+  description: The SnapLogic Public APIs provide programmatic management for SnapLogic integration environments and project assets.
   version: '1.0'
   contact:
     name: SnapLogic Support
@@ -63,6 +63,26 @@ paths:
           description: Unauthorized
 components:
   schemas:
+    UserSettings:
+      type: object
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+        app_access:
+          type: array
+          items:
+            type: string
+    SuccessResponse:
+      type: object
+      properties:
+        http_status_code:
+          type: integer
+          description: HTTP status code of the response
+        response_map:
+          type: object
+          description: Additional response data
     UserAppAccessRequest:
       type: object
       required:
@@ -78,26 +98,6 @@ components:
           - grant
           - revoke
           description: Whether to grant or revoke access
-    SuccessResponse:
-      type: object
-      properties:
-        http_status_code:
-          type: integer
-          description: HTTP status code of the response
-        response_map:
-          type: object
-          description: Additional response data
-    UserSettings:
-      type: object
-      properties:
-        username:
-          type: string
-        email:
-          type: string
-        app_access:
-          type: array
-          items:
-            type: string
   securitySchemes:
     bearerAuth:
       type: http

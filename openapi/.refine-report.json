@@ -1,10 +1,7 @@
 {
   "provider": "snaplogic",
   "sources": [
-    "snaplogic-asset-management-api-openapi.yml",
-    "snaplogic-runtime-api-openapi.yml",
-    "snaplogic-tasks-api-openapi.yml",
-    "snaplogic-users-and-groups-api-openapi.yml"
+    "_original/snaplogic-public-apis-openapi.yml"
   ],
   "outputs": [
     "snaplogic-asset-management-api-openapi.yml",
@@ -14,11 +11,20 @@
   ],
   "archived": [],
   "errors": [
-    "snaplogic-runtime-api-openapi.yml: dangling $ref: #/schemas/ConcurrentMetrics",
-    "snaplogic-runtime-api-openapi.yml: dangling $ref: #/schemas/DailyMetrics",
-    "snaplogic-runtime-api-openapi.yml: dangling $ref: #/schemas/RuntimeExecution"
+    "snaplogic-public-apis-openapi.yml: dangling $ref: #/schemas/ConcurrentMetrics",
+    "snaplogic-public-apis-openapi.yml: dangling $ref: #/schemas/DailyMetrics",
+    "snaplogic-public-apis-openapi.yml: dangling $ref: #/schemas/RuntimeExecution"
   ],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "snaplogic-public-apis-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "snaplogic-asset-management-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "snaplogic-runtime-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "snaplogic-tasks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "snaplogic-users-and-groups-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

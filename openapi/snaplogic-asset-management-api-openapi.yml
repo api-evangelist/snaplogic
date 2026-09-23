@@ -1,7 +1,7 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: SnapLogic Public APIs Asset Management API
-  description: The SnapLogic Public APIs provide programmatic management for SnapLogic integration environments and project assets. The APIs cover activity tracking, asset management, asset catalog and lineage, log retrieval, runtime and pipeline execution control, task management, project and Git operations, Snaplex infrastructure management, Snap statistics, API Management lifecycle, and user and group administration. The platform authenticates API calls with basic authentication and JSON Web Token (JWT) over HTTPS.
+  title: SnapLogic Public Asset Management API
+  description: The SnapLogic Public APIs provide programmatic management for SnapLogic integration environments and project assets.
   version: '1.0'
   contact:
     name: SnapLogic Support
@@ -152,26 +152,7 @@ paths:
         '404':
           description: Project not found
 components:
-  parameters:
-    assetPath:
-      name: path
-      in: path
-      required: true
-      description: The path to the asset within the SnapLogic project hierarchy
-      schema:
-        type: string
   schemas:
-    ProjectRequest:
-      type: object
-      required:
-      - path
-      properties:
-        path:
-          type: string
-          description: Path for the new project or project space
-        description:
-          type: string
-          description: Optional description for the project
     SuccessResponse:
       type: object
       properties:
@@ -181,23 +162,6 @@ components:
         response_map:
           type: object
           description: Additional response data
-    AclResponse:
-      type: object
-      properties:
-        http_status_code:
-          type: integer
-        response_map:
-          type: object
-          properties:
-            permissions:
-              type: array
-              items:
-                type: string
-                enum:
-                - read
-                - write
-                - execute
-                - admin
     ProjectRenameRequest:
       type: object
       required:
@@ -227,6 +191,42 @@ components:
           items:
             type: string
           description: Usernames or group names to grant access to
+    ProjectRequest:
+      type: object
+      required:
+      - path
+      properties:
+        path:
+          type: string
+          description: Path for the new project or project space
+        description:
+          type: string
+          description: Optional description for the project
+    AclResponse:
+      type: object
+      properties:
+        http_status_code:
+          type: integer
+        response_map:
+          type: object
+          properties:
+            permissions:
+              type: array
+              items:
+                type: string
+                enum:
+                - read
+                - write
+                - execute
+                - admin
+  parameters:
+    assetPath:
+      name: path
+      in: path
+      required: true
+      description: The path to the asset within the SnapLogic project hierarchy
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http
