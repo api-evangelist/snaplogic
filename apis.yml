@@ -43,7 +43,7 @@ apis:
 - aid: snaplogic:snaplogic
   name: SnapLogic
   tags: []
-  humanURL: ' https://www.snaplogic.com/'
+  humanURL: https://www.snaplogic.com/
   properties:
   - url: ' https://www.snaplogic.com/'
     type: Documentation

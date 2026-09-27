@@ -183,15 +183,6 @@ components:
           $ref: '#/schemas/ConcurrentMetrics'
         daily:
           $ref: '#/schemas/DailyMetrics'
-    SuccessResponse:
-      type: object
-      properties:
-        http_status_code:
-          type: integer
-          description: HTTP status code of the response
-        response_map:
-          type: object
-          description: Additional response data
     RuntimeExecution:
       type: object
       properties:
@@ -227,6 +218,20 @@ components:
         user_name:
           type: string
           description: Username of the user who triggered the execution
+    DailyMetrics:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+        total_executions:
+          type: integer
+        successful_executions:
+          type: integer
+        failed_executions:
+          type: integer
+        avg_duration_seconds:
+          type: number
     ConcurrentMetrics:
       type: object
       properties:
@@ -239,6 +244,15 @@ components:
         peak_concurrent:
           type: integer
           description: Peak concurrent executions recorded
+    SuccessResponse:
+      type: object
+      properties:
+        http_status_code:
+          type: integer
+          description: HTTP status code of the response
+        response_map:
+          type: object
+          description: Additional response data
     RuntimeListResponse:
       type: object
       properties:
@@ -255,33 +269,19 @@ components:
           type: array
           items:
             $ref: '#/schemas/RuntimeExecution'
-    DailyMetrics:
-      type: object
-      properties:
-        date:
-          type: string
-          format: date
-        total_executions:
-          type: integer
-        successful_executions:
-          type: integer
-        failed_executions:
-          type: integer
-        avg_duration_seconds:
-          type: number
   parameters:
-    orgPath:
-      name: org
-      in: path
-      required: true
-      description: The SnapLogic organization name
-      schema:
-        type: string
     ruuid:
       name: ruuid
       in: path
       required: true
       description: The runtime UUID of the pipeline execution
+      schema:
+        type: string
+    orgPath:
+      name: org
+      in: path
+      required: true
+      description: The SnapLogic organization name
       schema:
         type: string
   securitySchemes:
