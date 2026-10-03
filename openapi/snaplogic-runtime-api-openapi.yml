@@ -176,13 +176,43 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    ExecutionMetrics:
+    SuccessResponse:
       type: object
       properties:
-        concurrent:
-          $ref: '#/schemas/ConcurrentMetrics'
-        daily:
-          $ref: '#/schemas/DailyMetrics'
+        http_status_code:
+          type: integer
+          description: HTTP status code of the response
+        response_map:
+          type: object
+          description: Additional response data
+    ConcurrentMetrics:
+      type: object
+      properties:
+        current_concurrent:
+          type: integer
+          description: Current number of concurrent pipeline executions
+        max_concurrent:
+          type: integer
+          description: Maximum allowed concurrent executions
+        peak_concurrent:
+          type: integer
+          description: Peak concurrent executions recorded
+    RuntimeListResponse:
+      type: object
+      properties:
+        total:
+          type: integer
+          description: Total number of executions matching the filter
+        offset:
+          type: integer
+          description: Offset for pagination
+        count:
+          type: integer
+          description: Number of executions returned
+        executions:
+          type: array
+          items:
+            $ref: '#/schemas/RuntimeExecution'
     RuntimeExecution:
       type: object
       properties:
@@ -218,6 +248,13 @@ components:
         user_name:
           type: string
           description: Username of the user who triggered the execution
+    ExecutionMetrics:
+      type: object
+      properties:
+        concurrent:
+          $ref: '#/schemas/ConcurrentMetrics'
+        daily:
+          $ref: '#/schemas/DailyMetrics'
     DailyMetrics:
       type: object
       properties:
@@ -232,56 +269,19 @@ components:
           type: integer
         avg_duration_seconds:
           type: number
-    ConcurrentMetrics:
-      type: object
-      properties:
-        current_concurrent:
-          type: integer
-          description: Current number of concurrent pipeline executions
-        max_concurrent:
-          type: integer
-          description: Maximum allowed concurrent executions
-        peak_concurrent:
-          type: integer
-          description: Peak concurrent executions recorded
-    SuccessResponse:
-      type: object
-      properties:
-        http_status_code:
-          type: integer
-          description: HTTP status code of the response
-        response_map:
-          type: object
-          description: Additional response data
-    RuntimeListResponse:
-      type: object
-      properties:
-        total:
-          type: integer
-          description: Total number of executions matching the filter
-        offset:
-          type: integer
-          description: Offset for pagination
-        count:
-          type: integer
-          description: Number of executions returned
-        executions:
-          type: array
-          items:
-            $ref: '#/schemas/RuntimeExecution'
   parameters:
-    ruuid:
-      name: ruuid
-      in: path
-      required: true
-      description: The runtime UUID of the pipeline execution
-      schema:
-        type: string
     orgPath:
       name: org
       in: path
       required: true
       description: The SnapLogic organization name
+      schema:
+        type: string
+    ruuid:
+      name: ruuid
+      in: path
+      required: true
+      description: The runtime UUID of the pipeline execution
       schema:
         type: string
   securitySchemes:
