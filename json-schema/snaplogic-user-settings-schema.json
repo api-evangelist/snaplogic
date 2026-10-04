@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/snaplogic/main/json-schema/snaplogic-user-settings-schema.json",
+  "title": "UserSettings",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/snaplogic-users-and-groups-api-openapi.yml#/components/schemas/UserSettings",
+  "type": "object",
+  "properties": {
+    "username": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "app_access": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

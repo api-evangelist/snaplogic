@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/snaplogic/main/json-schema/snaplogic-execution-metrics-schema.json",
+  "title": "ExecutionMetrics",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/snaplogic-runtime-api-openapi.yml#/components/schemas/ExecutionMetrics",
+  "type": "object",
+  "properties": {
+    "concurrent": {
+      "$ref": "#/schemas/ConcurrentMetrics"
+    },
+    "daily": {
+      "$ref": "#/schemas/DailyMetrics"
+    }
+  }
+}

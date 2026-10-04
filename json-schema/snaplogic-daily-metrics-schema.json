@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/snaplogic/main/json-schema/snaplogic-daily-metrics-schema.json",
+  "title": "DailyMetrics",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/snaplogic-runtime-api-openapi.yml#/components/schemas/DailyMetrics",
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "total_executions": {
+      "type": "integer"
+    },
+    "successful_executions": {
+      "type": "integer"
+    },
+    "failed_executions": {
+      "type": "integer"
+    },
+    "avg_duration_seconds": {
+      "type": "number"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/snaplogic/main/json-schema/snaplogic-runtime-list-response-schema.json",
+  "title": "RuntimeListResponse",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/snaplogic-runtime-api-openapi.yml#/components/schemas/RuntimeListResponse",
+  "type": "object",
+  "properties": {
+    "total": {
+      "type": "integer",
+      "description": "Total number of executions matching the filter"
+    },
+    "offset": {
+      "type": "integer",
+      "description": "Offset for pagination"
+    },
+    "count": {
+      "type": "integer",
+      "description": "Number of executions returned"
+    },
+    "executions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/schemas/RuntimeExecution"
+      }
+    }
+  }
+}

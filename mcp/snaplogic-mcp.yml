@@ -1,0 +1,98 @@
+generated: '2026-10-03'
+method: derived
+generator: derive-mcp-candidate.py
+source:
+- openapi/snaplogic-asset-management-api-openapi.yml
+- openapi/snaplogic-runtime-api-openapi.yml
+- openapi/snaplogic-tasks-api-openapi.yml
+- openapi/snaplogic-users-and-groups-api-openapi.yml
+status: candidate
+deployment:
+  mode: none
+  auth: unknown
+  verified: probed
+note: 'No MCP server was found. The pre-flight posted tools/list to /mcp on api.snaplogic.com, api.atlassian.net, www.snaplogic.com, developer.snaplogic.com;
+  verdict gated (https://docs.snaplogic.com/mcp answered 403: the edge authenticates before it routes, which proves nothing either way). Candidate
+  tools below are derived from the 16 operation(s) in the provider''s own OpenAPI (16 listed); they describe what a server WOULD expose, not one
+  that exists.'
+tools:
+- name: get_asset_privileges
+  operationId: getAssetPrivileges
+  method: GET
+  path: /assetapi/acl/{path}
+  description: Get Asset Privileges
+- name: list_pipeline_executions
+  operationId: listPipelineExecutions
+  method: GET
+  path: /runtime/{org}
+  description: List Pipeline Executions
+- name: update_task_owner
+  operationId: updateTaskOwner
+  method: POST
+  path: /assetapi/update-owner
+  description: Update Task Owner
+- name: get_user_settings
+  operationId: getUserSettings
+  method: GET
+  path: /assetapi/user-settings
+  description: Get User Settings
+- name: grant_asset_access
+  operationId: grantAssetAccess
+  method: POST
+  path: /assetapi/acl/{path}
+  description: Grant Asset Access
+- name: get_pipeline_execution
+  operationId: getPipelineExecution
+  method: GET
+  path: /runtime/{org}/{ruuid}
+  description: Get Pipeline Execution
+- name: update_user_app_access
+  operationId: updateUserAppAccess
+  method: POST
+  path: /assetapi/user-app-access
+  description: Update User App Access
+- name: revoke_asset_access
+  operationId: revokeAssetAccess
+  method: DELETE
+  path: /assetapi/acl/{path}
+  description: Revoke Asset Access
+- name: resume_pipeline_execution
+  operationId: resumePipelineExecution
+  method: POST
+  path: /runtime/start/{org}/{ruuid}
+  description: Resume Pipeline Execution
+- name: create_project
+  operationId: createProject
+  method: POST
+  path: /assetapi/project/{path}
+  description: Create Project
+- name: stop_pipeline_execution
+  operationId: stopPipelineExecution
+  method: POST
+  path: /runtime/stop/{org}/{ruuid}
+  description: Stop Pipeline Execution
+- name: rename_project
+  operationId: renameProject
+  method: PUT
+  path: /assetapi/project/{path}
+  description: Rename Project
+- name: get_execution_metrics
+  operationId: getExecutionMetrics
+  method: GET
+  path: /runtime/apistats/{org}
+  description: Get Execution Metrics
+- name: delete_project
+  operationId: deleteProject
+  method: DELETE
+  path: /assetapi/project/{path}
+  description: Delete Project
+- name: get_daily_execution_metrics
+  operationId: getDailyExecutionMetrics
+  method: GET
+  path: /runtime/apistats/{org}/daily
+  description: Get Daily Execution Metrics
+- name: get_concurrent_execution_metrics
+  operationId: getConcurrentExecutionMetrics
+  method: GET
+  path: /runtime/apistats/{org}/concurrent
+  description: Get Concurrent Execution Metrics

@@ -1,0 +1,16 @@
+generated: '2026-10-03'
+method: probed
+generator: harvest-packages.py
+source: registry metadata endpoints (registry.npmjs.org, pypi.org, rubygems.org, api.nuget.org, packagist.org, crates.io)
+ownership_rule: 'official: true only when the registry metadata (homepage, repository, author, URLs) names the provider''s domain (agentic-access/snaplogic-agentic-access.yml,
+  atlassian.net, authentication/snaplogic-authentication.yml, linkedin.com, postman.com, security/snaplogic-domain-security.yml, snaplogic.com,
+  x.com) or its accepted GitHub org.'
+packages:
+- name: snaplogic
+  registry: pypi
+  url: https://pypi.org/project/snaplogic/
+  language: Python
+  official: true
+  version: 0.0.5
+  published: '2020-11-19'
+  evidence: metadata names snaplogic.com

@@ -1,0 +1,34 @@
+generated: '2026-10-03'
+method: derived
+generator: derive-problem-types.py
+source:
+- openapi/snaplogic-asset-management-api-openapi.yml
+- openapi/snaplogic-runtime-api-openapi.yml
+- openapi/snaplogic-tasks-api-openapi.yml
+- openapi/snaplogic-users-and-groups-api-openapi.yml
+format: custom
+envelope:
+  media_type: null
+  schema: null
+coverage:
+  operations: 16
+  statuses_declared: 3
+problems:
+- status: 400
+  title: Bad Request
+  description: Bad request
+  operations: 3
+  media_types: []
+  schema: null
+- status: 401
+  title: Unauthorized
+  description: Unauthorized
+  operations: 16
+  media_types: []
+  schema: null
+- status: 404
+  title: Not Found
+  description: Execution not found
+  operations: 6
+  media_types: []
+  schema: null

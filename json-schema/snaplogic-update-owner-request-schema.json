@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/snaplogic/main/json-schema/snaplogic-update-owner-request-schema.json",
+  "title": "UpdateOwnerRequest",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/snaplogic-tasks-api-openapi.yml#/components/schemas/UpdateOwnerRequest",
+  "type": "object",
+  "required": [
+    "path",
+    "new_owner"
+  ],
+  "properties": {
+    "path": {
+      "type": "string",
+      "description": "Path to the task to update ownership"
+    },
+    "new_owner": {
+      "type": "string",
+      "description": "Username of the new owner"
+    }
+  }
+}

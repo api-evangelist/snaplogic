@@ -45,15 +45,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    SuccessResponse:
-      type: object
-      properties:
-        http_status_code:
-          type: integer
-          description: HTTP status code of the response
-        response_map:
-          type: object
-          description: Additional response data
     UpdateOwnerRequest:
       type: object
       required:
@@ -66,6 +57,15 @@ components:
         new_owner:
           type: string
           description: Username of the new owner
+    SuccessResponse:
+      type: object
+      properties:
+        http_status_code:
+          type: integer
+          description: HTTP status code of the response
+        response_map:
+          type: object
+          description: Additional response data
   securitySchemes:
     bearerAuth:
       type: http

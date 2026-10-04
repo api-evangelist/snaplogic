@@ -1,0 +1,40 @@
+generated: '2026-10-03'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://www.snaplogic.com/blog/ipaas-compliance-buyers-guide
+sources:
+- https://www.snaplogic.com/blog/ipaas-compliance-buyers-guide
+- https://www.snaplogic.com/resources/webcasts/governing-ai-agents-enterprise-security
+standards:
+- id: soc2
+  conforms: true
+  evidence: Certifications relevant to your regulatory context (SOC 2 Type II, HIPAA BAA availability, FedRAMP authorization, ISO 27001)
+- id: hipaa
+  conforms: true
+  evidence: Certifications relevant to your regulatory context (SOC 2 Type II, HIPAA BAA availability, FedRAMP authorization, ISO 27001)
+- id: iso-27001
+  conforms: true
+  evidence: Certifications relevant to your regulatory context (SOC 2 Type II, HIPAA BAA availability, FedRAMP authorization, ISO 27001)
+- id: soc2
+  conforms: true
+  evidence: Certifications relevant to your regulatory context (SOC 2 Type II, HIPAA BAA availability, FedRAMP authorization, ISO 27001)
+- id: hipaa
+  conforms: true
+  evidence: Certifications relevant to your regulatory context (SOC 2 Type II, HIPAA BAA availability, FedRAMP authorization, ISO 27001)
+- id: openapi-3.2
+  conforms: true
+  evidence: the document declares 3.2.0
+- id: oauth2
+  conforms: false
+  evidence: 'securitySchemes: basicAuth (http), bearerAuth (http)'
+- id: rfc9457
+  conforms: false
+  evidence: no response declares application/problem+json
+- id: idempotency
+  conforms: false
+  evidence: no idempotency key parameter on mutating operations
+- id: pagination
+  conforms: true
+  evidence: list operations take limit
+docs: https://www.snaplogic.com/blog/ipaas-compliance-buyers-guide
+note: 7 extracted row(s) were dropped because their quote was not on the page.

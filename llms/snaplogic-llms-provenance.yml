@@ -1,0 +1,6 @@
+generated: '2026-10-03'
+method: probed
+generator: harvest-llms.py
+source: https://www.snaplogic.com/llms.txt
+bytes: 13893
+note: saved verbatim; the provider's own document

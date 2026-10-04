@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/snaplogic/main/json-schema/snaplogic-acl-request-schema.json",
+  "title": "AclRequest",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/snaplogic-asset-management-api-openapi.yml#/components/schemas/AclRequest",
+  "type": "object",
+  "required": [
+    "perms",
+    "users"
+  ],
+  "properties": {
+    "perms": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "read",
+          "write",
+          "execute",
+          "admin"
+        ]
+      },
+      "description": "Permissions to grant"
+    },
+    "users": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Usernames or group names to grant access to"
+    }
+  }
+}

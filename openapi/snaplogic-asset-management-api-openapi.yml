@@ -153,17 +153,6 @@ paths:
           description: Project not found
 components:
   schemas:
-    ProjectRequest:
-      type: object
-      required:
-      - path
-      properties:
-        path:
-          type: string
-          description: Path for the new project or project space
-        description:
-          type: string
-          description: Optional description for the project
     SuccessResponse:
       type: object
       properties:
@@ -173,31 +162,6 @@ components:
         response_map:
           type: object
           description: Additional response data
-    AclResponse:
-      type: object
-      properties:
-        http_status_code:
-          type: integer
-        response_map:
-          type: object
-          properties:
-            permissions:
-              type: array
-              items:
-                type: string
-                enum:
-                - read
-                - write
-                - execute
-                - admin
-    ProjectRenameRequest:
-      type: object
-      required:
-      - new_name
-      properties:
-        new_name:
-          type: string
-          description: New name for the project
     AclRequest:
       type: object
       required:
@@ -219,6 +183,42 @@ components:
           items:
             type: string
           description: Usernames or group names to grant access to
+    ProjectRenameRequest:
+      type: object
+      required:
+      - new_name
+      properties:
+        new_name:
+          type: string
+          description: New name for the project
+    ProjectRequest:
+      type: object
+      required:
+      - path
+      properties:
+        path:
+          type: string
+          description: Path for the new project or project space
+        description:
+          type: string
+          description: Optional description for the project
+    AclResponse:
+      type: object
+      properties:
+        http_status_code:
+          type: integer
+        response_map:
+          type: object
+          properties:
+            permissions:
+              type: array
+              items:
+                type: string
+                enum:
+                - read
+                - write
+                - execute
+                - admin
   parameters:
     assetPath:
       name: path

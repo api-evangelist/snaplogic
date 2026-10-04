@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/snaplogic/main/json-schema/snaplogic-runtime-execution-schema.json",
+  "title": "RuntimeExecution",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/snaplogic-runtime-api-openapi.yml#/components/schemas/RuntimeExecution",
+  "type": "object",
+  "properties": {
+    "ruuid": {
+      "type": "string",
+      "description": "Runtime UUID of the pipeline execution"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "running",
+        "completed",
+        "failed",
+        "stopped",
+        "suspended"
+      ],
+      "description": "Current status of the pipeline execution"
+    },
+    "pipeline_path": {
+      "type": "string",
+      "description": "Full path to the pipeline being executed"
+    },
+    "start_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the execution started"
+    },
+    "end_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the execution ended (null if still running)"
+    },
+    "elapsed": {
+      "type": "number",
+      "description": "Elapsed execution time in seconds"
+    },
+    "error_message": {
+      "type": "string",
+      "description": "Error message if execution failed"
+    },
+    "user_name": {
+      "type": "string",
+      "description": "Username of the user who triggered the execution"
+    }
+  }
+}

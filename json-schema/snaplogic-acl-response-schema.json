@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/snaplogic/main/json-schema/snaplogic-acl-response-schema.json",
+  "title": "AclResponse",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/snaplogic-asset-management-api-openapi.yml#/components/schemas/AclResponse",
+  "type": "object",
+  "properties": {
+    "http_status_code": {
+      "type": "integer"
+    },
+    "response_map": {
+      "type": "object",
+      "properties": {
+        "permissions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "read",
+              "write",
+              "execute",
+              "admin"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

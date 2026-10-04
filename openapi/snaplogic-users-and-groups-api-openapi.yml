@@ -63,26 +63,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    SuccessResponse:
-      type: object
-      properties:
-        http_status_code:
-          type: integer
-          description: HTTP status code of the response
-        response_map:
-          type: object
-          description: Additional response data
-    UserSettings:
-      type: object
-      properties:
-        username:
-          type: string
-        email:
-          type: string
-        app_access:
-          type: array
-          items:
-            type: string
     UserAppAccessRequest:
       type: object
       required:
@@ -98,6 +78,26 @@ components:
           - grant
           - revoke
           description: Whether to grant or revoke access
+    UserSettings:
+      type: object
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+        app_access:
+          type: array
+          items:
+            type: string
+    SuccessResponse:
+      type: object
+      properties:
+        http_status_code:
+          type: integer
+          description: HTTP status code of the response
+        response_map:
+          type: object
+          description: Additional response data
   securitySchemes:
     bearerAuth:
       type: http

@@ -1,0 +1,25 @@
+generated: "2026-10-03"
+method: probed
+source: "https://www.snaplogic.com/privacy-policy"
+signals:
+  subprocessors:
+    evidence:
+      - source: "https://www.snaplogic.com/privacy-subprocessors"
+        http_status: 200
+        fetched: "true"
+        quote: "SnapLogic’s Subprocessors. Our Service includes services provided by certain third‑party vendors who process Personal Data."
+    note: "Lists third‑party vendors processing personal data."
+  data_residency:
+    evidence:
+      - source: "https://www.snaplogic.com/privacy-policy"
+        http_status: 200
+        fetched: "true"
+        quote: "When you use our Site and Services, your collected information may be sent to and processed in countries outside your country of residence, including the U.S. For individuals residing in the European Economic Area (EEA), Switzerland, or the U.K., ... this includes transfers outside of those countries."
+    note: "Describes cross‑border data transfers."
+  data_subject_request:
+    evidence:
+      - source: "https://www.snaplogic.com/privacy-policy"
+        http_status: 200
+        fetched: "true"
+        quote: "All individuals whose responsibilities include access to or use of your Personal Data are required to adhere to our Privacy Policy. By using or accessing our Site or Services ... you acknowledge that you accept the practices and policies outlined in this Policy."
+    note: "Indicates obligations for data subject access requests."
