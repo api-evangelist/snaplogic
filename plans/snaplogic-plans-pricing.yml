@@ -1,53 +1,33 @@
-name: SnapLogic API Plans
-specification: API Commons Plans
-specificationVersion: '0.1'
-schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
-provider: SnapLogic
-providerId: snaplogic
-created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
-reconciled: false
-tags:
-  - AI
-  - API Management
-  - Integration
-  - iPaaS
-description: SnapLogic does not publish self-serve pricing for its Intelligent Integration Platform. The
-  pricing page links to a "Request a Demo" / "Contact Us" call-to-action only; tier names, per-Snap or
-  per-pipeline prices, and minimums are quoted by the SnapLogic sales team.
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-07'
+method: searched
+source: https://www.snaplogic.com/pricing
 sources:
-  - https://www.snaplogic.com/products
-notes: SnapLogic publishes no public price list, plan SKUs, or self-serve tier on snaplogic.com. All editions
-  (Integration, AgentCreator, SnapGPT, API Management) require contacting the SnapLogic sales team for
-  a custom quote, so this artifact is intentionally limited to a single Contact Sales plan and reconciled
-  is false.
+- https://www.snaplogic.com/pricing
+provenance:
+  tool: all/0-working/economics/harvest_pricing.py
+  run: 20261007T104522
+  grounding: every price_text was found verbatim in the fetched page text
+audience: business-product
+pricing_basis: negotiated
+delivery:
+  delivery: managed+licensed
+  method: page
+  read: '2026-10-07'
+  evidence: And whether you deploy on GroundPlex or CloudPlex, the price is the same.
+published: false
+note: No numeric price is published on the pricing page; Page describes three packages (Essential, Professional,
+  Enterprise One) and add-ons but shows no numeric prices; only ROI study figures. Directs to 'Book a
+  Demo' for customized pricing.
+plan_count: 3
 plans:
-  - id: snaplogic-contact-sales
-    name: Contact Sales
-    type: enterprise
-    description: Custom-quoted SnapLogic Intelligent Integration Platform subscription. Pricing is sized
-      against the customer's Snap consumption, environment count, and platform modules (iPaaS, API Management,
-      AgentCreator, SnapGPT) and is provided by the SnapLogic sales team on request.
-    entries:
-      - label: Platform Subscription
-        name: platform_subscription
-        type: subscription
-        metric: varies
-        limit: -1
-        timeFrame: year
-        geo: global
-        unit: 1
-        price: contact sales
-        userMultiplied: false
-    elements:
-      - name: SnapLogic Intelligent Integration Platform
-      - name: Application & Data Integration
-      - name: API Management
-      - name: AgentCreator
-      - name: SnapGPT
-maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- name: Essential
+  price_text: Ready to get customized pricing?
+  period: none
+  included_quota: unlimited pipelines, data movement, and integrations
+- name: Professional
+  price_text: Ready to get customized pricing?
+  period: none
+- name: Enterprise One
+  price_text: Ready to get customized pricing?
+  period: none
