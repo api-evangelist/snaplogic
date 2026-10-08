@@ -31,3 +31,30 @@ plans:
 - name: Enterprise One
   price_text: Ready to get customized pricing?
   period: none
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models: []
+  units: []
+  plans:
+  - name: Essential
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - none
+  - name: Professional
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - none
+  - name: Enterprise One
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - none
