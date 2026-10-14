@@ -15,3 +15,28 @@
   relationship: distribution-channel
   status: not-a-workflow
   arazzo: null
+- slug: snaplogic-geotab-own
+  label: Geotab (own)
+  partner: geotab
+  partner_name: Geotab (own)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.geotab.com/partner/snaplogic-pty-ltd/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: snaplogic-workday-own
+  label: Workday (own)
+  partner: workday
+  partner_name: Workday (own)
+  category: Buying Center
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.workday.com/apps/414678/snaplogic-salesforce-for-quote-to-cash-connector
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null

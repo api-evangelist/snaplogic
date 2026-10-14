@@ -1,7 +1,9 @@
 generated: '2026-10-13'
 method: searched
 checked:
+- geotab/integrations/geotab-integration-edges.yml
 - https://azuremarketplace.microsoft.com/
+- workday/integrations/workday-integration-edges.yml
 marketplace_apps: []
 edges:
 - partner_name: Microsoft Azure Marketplace
@@ -19,3 +21,41 @@ edges:
   seller_name: SnapLogic
   detected_by: sweep-cloud-marketplaces.py
   detected: '2026-10-13'
+- partner_name: Geotab (own)
+  partner: geotab
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://marketplace.geotab.com/partner/snaplogic-pty-ltd/
+  mirror_of: geotab/integrations/geotab-integration-edges.yml
+  apps:
+  - SnapLogic Pty Ltd
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+- partner_name: Workday (own)
+  partner: workday
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://marketplace.workday.com/apps/414678/snaplogic-salesforce-for-quote-to-cash-connector
+  mirror_of: workday/integrations/workday-integration-edges.yml
+  apps:
+  - SnapLogic Salesforce for Quote-to-Cash Connector
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Buying Center
+  badges:
+  - Approved Partner Solution
+source:
+- geotab/integrations/geotab-integration-edges.yml
+- workday/integrations/workday-integration-edges.yml
