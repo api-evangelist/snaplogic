@@ -1,5 +1,12 @@
-generated: '2026-10-13'
+generated: '2026-10-20'
 method: searched
+source:
+- geotab/integrations/geotab-integration-edges.yml
+- workday/integrations/workday-integration-edges.yml
+- https://zapier.com/apps/snaplogic/integrations
+- https://n8n.io/integrations/snaplogic/
+- https://composio.dev/toolkits/snaplogic
+- https://monid.ai/tools/snaplogic
 checked:
 - geotab/integrations/geotab-integration-edges.yml
 - https://api.nuget.org/v3
@@ -11,6 +18,11 @@ checked:
 - https://repo1.maven.org/maven2
 - https://rubygems.org/api/v1
 - workday/integrations/workday-integration-edges.yml
+- https://composio.dev/toolkits/snaplogic
+- https://monid.ai/tools/snaplogic
+- https://n8n.io/integrations/snaplogic/
+- https://zapier.com/apps/snaplogic/integrations
+summary: null
 marketplace_apps: []
 edges:
 - partner_name: Microsoft Azure Marketplace
@@ -93,6 +105,4 @@ edges:
     detected: '2026-10-18'
   detected_by: sweep-official-sdks.py
   first_seen: '2026-10-18'
-source:
-- geotab/integrations/geotab-integration-edges.yml
-- workday/integrations/workday-integration-edges.yml
+templates: []
