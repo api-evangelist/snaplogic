@@ -71,3 +71,27 @@
     detected: '2026-10-18'
   status: not-a-workflow
   arazzo: null
+- slug: snaplogic-claude-plugins-dev
+  label: claude-plugins.dev
+  partner_name: claude-plugins.dev
+  category: Agent Skills register
+  type: register
+  channel: standard-directory
+  evidence: https://claude-plugins.dev/skills/@snaplogic/snaplogic-robotframework-examples
+  source: edge
+  relationship: compatible
+  contract_reference:
+    register: claude-plugins.dev (public sitemap / list)
+    spec_file: null
+    standard: Agent Skills (agentskills.io)
+    role: agent-skills-listing
+    matched_org: snaplogic
+    matched_by: org-profile-domain:snaplogic.com
+    sample_skills:
+    - create-account
+    - import-pipeline
+    - run-tests
+    detected_by: sweep-agent-skills.py
+    detected: '2026-10-20'
+  status: not-a-workflow
+  arazzo: null
