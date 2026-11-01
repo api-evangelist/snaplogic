@@ -1,4 +1,4 @@
-# SnapLogic (snaplogic)
+# SnapLogic
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,154 +64,197 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Our AI-powered, all-in-one generative integration platform unifies your data and streamlines workflows to transform your business.
+SnapLogic provides an Agentic Integration and Applied AI Platform that securely connects applications, data, APIs and AI agents across cloud, on‑premise and hybrid environments for enterprises. The platform offers visual ETL/ELT, no‑code iPaaS, API management, legacy modernization tools, and governed AI agent execution.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/snaplogic/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/snaplogic/refs/heads/main/apis.yml)
+**Areas:** Artificial Intelligence · API Management · Automation · Data Integration · Integration · iPaaS · Management
 
-## Scope
+## SnapLogic on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for SnapLogic is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/snaplogic/](https://apis.io/providers/snaplogic/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (7)
 
-- AI
-- API Management
-- Automation
-- Data Integration
-- Integrations
-- iPaaS
-- Management
+- [SnapLogic API Management](https://apis.io/apis/snaplogic/snaplogic-api-management/) — SnapLogic API Management enables organizations to create, manage, secure, and monitor APIs throughout their lifecycle. It supports exposing SnapLogic…
+- [SnapLogic Snap Development SDK](https://apis.io/apis/snaplogic/snaplogic-snap-development/) — The SnapLogic Snap Development SDK provides a Java-based framework for building custom Snaps for the SnapLogic Intelligent Integration Platform. Snaps are…
+- [SnapLogic](https://apis.io/apis/snaplogic/snaplogic/) — SnapLogic provides an AI-powered, all-in-one generative integration platform that unifies data across on-premises, hybrid, and cloud environments. It…
+- [SnapLogic Asset Management API](https://apis.io/apis/snaplogic/snaplogic-asset-management-api/) — Control project access, permissions, and asset management including project creation, renaming, deletion, and ACL management.
+- [SnapLogic Runtime API](https://apis.io/apis/snaplogic/snaplogic-runtime-api/) — Monitor and control pipeline execution state, performance metrics, and concurrent execution statistics.
+- [SnapLogic Tasks API](https://apis.io/apis/snaplogic/snaplogic-tasks-api/) — Enable, disable, and manage task configuration for triggered and scheduled pipeline tasks.
+- [SnapLogic Users and Groups API](https://apis.io/apis/snaplogic/snaplogic-users-and-groups-api/) — Manage user accounts, groups, and membership for SnapLogic organizations.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-06-06T00:00:00.000Z
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### MCP servers (1)
 
-### SnapLogic Public APIs
+Model Context Protocol servers that expose the API to agents.
 
-SnapLogic Public APIs provide programmatic management for your environment and project assets. The APIs cover activity tracking, asset management, asset catalog and lineage, log retrieval, runtime and pipeline execution control, task management, project and Git operations, Snaplex infrastructure management, Snap statistics, API Management lifecycle, and user and group administration. The platform authenticates API calls with basic authentication and JSON Web Token (JWT) over HTTPS.
+- [snaplogic-mcp.yml](https://apis.io/servers/snaplogic/snaplogic-mcp-yml/)
 
-- **Human URL:** [https://docs.snaplogic.com/public-apis/public-apis-about.html](https://docs.snaplogic.com/public-apis/public-apis-about.html)
+#### Agentic access (1)
 
-#### Tags
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- Automation
-- Integration
-- iPaaS
+- [Snaplogic Agentic Access](https://apis.io/agentic-access/snaplogic/snaplogic-agentic-access/)
 
-#### Properties
+#### JSON Schema (14)
 
-- [Documentation](https://docs.snaplogic.com/public-apis/public-apis-about.html)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/snaplogic/refs/heads/main/openapi/snaplogic-public-apis-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Documentation](https://docs.snaplogic.com/public-apis/apis-asset.html)
-- [Documentation](https://docs.snaplogic.com/public-apis/apis-runtime.html)
-- [Documentation](https://docs.snaplogic.com/public-apis/apis-project.html)
-- [Documentation](https://docs.snaplogic.com/public-apis/apis-apim.html)
-- [Documentation](https://docs.snaplogic.com/public-apis/apis-user-and-group.html)
-- [Authentication](https://docs.snaplogic.com/public-apis/entra-id-configuration.html)
-- [Postman Collection](collections/snaplogic-public-apis.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/snaplogic-public-apis.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+The data models the API reads and writes.
 
-### SnapLogic API Management
+- [AclRequest](https://apis.io/schemas/snaplogic/snaplogic-acl-request/)
+- [AclResponse](https://apis.io/schemas/snaplogic/snaplogic-acl-response/)
+- [ConcurrentMetrics](https://apis.io/schemas/snaplogic/snaplogic-concurrent-metrics/)
+- [DailyMetrics](https://apis.io/schemas/snaplogic/snaplogic-daily-metrics/)
+- [ExecutionMetrics](https://apis.io/schemas/snaplogic/snaplogic-execution-metrics/)
+- [SnapLogic Pipeline Execution](https://apis.io/schemas/snaplogic/snaplogic-pipeline-execution/)
+- [ProjectRenameRequest](https://apis.io/schemas/snaplogic/snaplogic-project-rename-request/)
+- [ProjectRequest](https://apis.io/schemas/snaplogic/snaplogic-project-request/)
+- [RuntimeExecution](https://apis.io/schemas/snaplogic/snaplogic-runtime-execution/)
+- [RuntimeListResponse](https://apis.io/schemas/snaplogic/snaplogic-runtime-list-response/)
+- [SuccessResponse](https://apis.io/schemas/snaplogic/snaplogic-success-response/)
+- [UpdateOwnerRequest](https://apis.io/schemas/snaplogic/snaplogic-update-owner-request/)
+- [UserAppAccessRequest](https://apis.io/schemas/snaplogic/snaplogic-user-app-access-request/)
+- [UserSettings](https://apis.io/schemas/snaplogic/snaplogic-user-settings/)
 
-SnapLogic API Management enables organizations to create, manage, secure, and monitor APIs throughout their lifecycle. It supports exposing SnapLogic pipelines as APIs or creating APIs from an OpenAPI specification, applying security policies, managing versions, publishing to a customizable developer portal, and monitoring API metrics and performance across on-premises, hybrid, and cloud environments.
+#### JSON Structure (1)
 
-- **Human URL:** [https://www.snaplogic.com/products/api-management-development](https://www.snaplogic.com/products/api-management-development)
+Data models expressed in JSON Structure.
 
-#### Tags
+- [Snaplogic Platform Structure](https://apis.io/json-structure/snaplogic/snaplogic-platform-structure/)
 
-- API Gateway
-- API Lifecycle
-- API Management
+#### JSON-LD (1)
 
-#### Properties
+Linked-data contexts for the provider's vocabulary.
 
-- [Documentation](https://www.snaplogic.com/products/api-management-development)
-- [Documentation](https://docs.snaplogic.com/public-apis/apis-apim.html)
-- [Documentation](https://docs.snaplogic.com/api-m/reference/generic-oauth2.html)
-- [Documentation](https://docs.snaplogic.com/monitor/observe-api-metrics.html)
-- [Postman Collection](collections/snaplogic-public-apis.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/snaplogic-public-apis.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Snaplogic Context](https://apis.io/jsonld/snaplogic/snaplogic-context/)
 
-### SnapLogic Snap Development SDK
+#### Vocabulary (1)
 
-The SnapLogic Snap Development SDK provides a Java-based framework for building custom Snaps for the SnapLogic Intelligent Integration Platform. Snaps are streaming data processors that consume and produce Binary or Document data through input and output views. The SDK supports property configuration, expression language, binary and document data handling, input schema validation, error view handling, and unit testing.
+The provider's domain terms, defined.
 
-- **Human URL:** [https://developer.snaplogic.com/](https://developer.snaplogic.com/)
+- [SnapLogic Vocabulary](https://apis.io/vocabularies/snaplogic/snaplogic-vocabulary/)
 
-#### Tags
+#### Examples (1)
 
-- Development
-- Integration
-- SDK
+Example requests and responses.
 
-#### Properties
+- [Snaplogic List Pipeline Executions Example](https://apis.io/examples/snaplogic/snaplogic-list-pipeline-executions-example/)
 
-- [Documentation](https://developer.snaplogic.com/)
-- [GitHub Organization](https://github.com/SnapLogic/developer.snaplogic.com)
-- [Postman Collection](collections/snaplogic-public-apis.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/snaplogic-public-apis.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Collections (9)
 
-### SnapLogic
+Postman and Open Collection request collections.
 
-Our AI-powered, all-in-one generative integration platform unifies your data and streamlines workflows to transform your business.
+- [SnapLogic Public APIs Asset Management API](https://apis.io/collections/snaplogic/open-snaplogic-asset-management-api/)
+- [SnapLogic Public APIs](https://apis.io/collections/snaplogic/open-snaplogic-public-apis/)
+- [SnapLogic Public APIs Asset Management Runtime API](https://apis.io/collections/snaplogic/open-snaplogic-runtime-api/)
+- [SnapLogic Public APIs Asset Management Tasks API](https://apis.io/collections/snaplogic/open-snaplogic-tasks-api/)
+- [SnapLogic Public APIs Asset Management Users and Groups API](https://apis.io/collections/snaplogic/open-snaplogic-users-and-groups-api/)
+- [SnapLogic Public APIs Asset Management API](https://apis.io/collections/snaplogic/postman-snaplogic-asset-management-api/)
+- [SnapLogic Public APIs Asset Management Runtime API](https://apis.io/collections/snaplogic/postman-snaplogic-runtime-api/)
+- [SnapLogic Public APIs Asset Management Tasks API](https://apis.io/collections/snaplogic/postman-snaplogic-tasks-api/)
+- [SnapLogic Public APIs Asset Management Users and Groups API](https://apis.io/collections/snaplogic/postman-snaplogic-users-and-groups-api/)
 
-- **Human URL:** [ https://www.snaplogic.com/]( https://www.snaplogic.com/)
+#### Governance rules (2)
 
-#### Properties
+Spectral rulesets for the provider's contracts.
 
-- [Documentation]( https://www.snaplogic.com/)
-- [Postman Collection](collections/snaplogic-public-apis.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/snaplogic-public-apis.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [SnapLogic — jsonschema rules](https://apis.io/rules/snaplogic/snaplogic-jsonschema-spectral-rules/)
+- [SnapLogic API Rules](https://apis.io/rules/snaplogic/snaplogic-rules/)
 
-## Common Properties
+#### Security (2)
 
-- [Documentation](https://docs-snaplogic.atlassian.net/wiki/spaces/SD/overview)
-- [LinkedIn](https://www.linkedin.com/company/snaplogic/)
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Snaplogic Authentication](https://apis.io/security/snaplogic/snaplogic-authentication/)
+- [Snaplogic Domain Security](https://apis.io/security/snaplogic/snaplogic-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Snaplogic Plans Pricing](https://apis.io/plans/snaplogic/snaplogic-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Snaplogic Rate Limits](https://apis.io/rate-limits/snaplogic/snaplogic-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Snaplogic Finops](https://apis.io/finops/snaplogic/snaplogic-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.snaplogic.com/)
-- [Integrations](https://www.snaplogic.com/products/snaps)
-- [Use Cases](https://www.snaplogic.com/use-cases)
-- [Request Demo](https://www.snaplogic.com/request-demo)
-- [Partners](https://www.snaplogic.com/partners)
-- [Customers](https://www.snaplogic.com/customers)
-- [Blog](https://www.snaplogic.com/blog)
-- [e Books](https://www.snaplogic.com/resources?_resource_type=ebook)
-- [Podcast](https://www.snaplogic.com/resources/podcasts)
-- [Webinars](https://www.snaplogic.com/resources/events)
-- [Training](https://www.snaplogic.com/resources/events/customer-workshops)
-- [Login](https://cdn.elastic.snaplogic.com/sl/login.html?referrer=https://www.snaplogic.com/)
-- [Request Demo](https://www.snaplogic.com/request-demo)
+- [Documentation](https://docs-snaplogic.atlassian.net/wiki/spaces/SD/overview)
+- [Getting started](https://community.snaplogic.com/t5/getting-started/bd-p/getting_started)
 - [Pricing](https://www.snaplogic.com/pricing)
-- [Security](https://www.snaplogic.com/security-standards)
-- [Glossary](https://www.snaplogic.com/glossary)
 - [Support](https://www.snaplogic.com/getting-help)
-- [Privacy Policy](https://www.snaplogic.com/privacy-policy)
-- [Terms of Service](https://www.snaplogic.com/terms-of-use)
-- [Documentation](https://docs.snaplogic.com/public-apis/public-apis-about.html)
-- [Documentation](https://docs.snaplogic.com/)
-- [Forum](https://community.snaplogic.com)
-- [Getting Started](https://community.snaplogic.com/t5/getting-started/bd-p/getting_started)
 - [Changelog](https://docs.snaplogic.com/introduction/release-process.html)
-- [Training](https://learn.snaplogic.com/)
-- [Certification](https://www.snaplogic.com/resources/snaplogic-academy)
-- [Documentation](https://developer.snaplogic.com/)
-- [GitHub Organization](https://github.com/SnapLogic)
-- [About](https://www.snaplogic.com/company)
-- [Careers](https://www.snaplogic.com/company/careers)
-- [News](https://www.snaplogic.com/company/newsroom)
-- [Press Releases](https://www.snaplogic.com/company/newsroom/press-releases)
-- [Contact](https://www.snaplogic.com/contact-us)
-- [X (Twitter)](https://x.com/SnapLogic)
-- [A P I Management](https://www.snaplogic.com/products/api-management-development)
-- [Documentation](https://docs.snaplogic.com/manager/view-pipeline-apis.html)
-- [Documentation](https://docs.snaplogic.com/cicd/git-integration/git-integration-about.html)
-- [Documentation](https://docs.snaplogic.com/monitor/observe-api-metrics.html)
+- [Blog](https://www.snaplogic.com/blog)
+- [Security](https://www.snaplogic.com/security-standards)
+- [Trust centre](https://trust.snaplogic.com/)
+- [Terms of service](https://www.snaplogic.com/terms-of-use)
+- [Privacy policy](https://www.snaplogic.com/privacy-policy)
+- [GitHub](https://github.com/SnapLogic)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 63.3** — strong · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 66.0 |
+| Contract governance | 45.5 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 60.1 |
+| Access clarity | 84.2 |
+
+**Agent readiness 32.8** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 27.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/snaplogic/](https://apis.io/providers/snaplogic/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for SnapLogic: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/snaplogic/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
